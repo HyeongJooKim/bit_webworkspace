@@ -1,0 +1,75 @@
+<!--ex14 배운 것만으로 UI 한번 만들어보기-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            body{
+                background: #FADD3B;
+            }
+            div{
+                width: 460px;
+/*              margin: 5px 5px 5px 5px;*/
+/*              top right bottom left순서*/
+                margin: 5px auto;
+/*              위아래만 주고, 좌우는자동으로 가운데 정렬함*/
+            }
+            #menu,#footer{text-align: center;}
+            #content{
+                width: 350px;
+                height: 300px;
+                display: inline-block;
+/*                background-color: aqua;*/
+            }
+            .article{
+                width: 100px;
+                height: 300px;
+                display: inline-block;
+                background-color: white;
+                padding-top: 50px;
+            }
+            #menu>ul>li{
+                width: 80px;
+                display: inline-block;
+            }
+            #menu>ul>li>a{
+                display: inline-block;
+                text-decoration: none;
+            }
+            #menu>ul>li>a:hover{color:forestgreen;}
+            
+/*이렇게 하면 content, article 높이 안 맞음. 좋은 패턴 아님. 이렇게는 안만들거다.           */
+            
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <img src="img/logo.jpg" width="100px"/>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">MENU1</a></li>
+                <li><a href="#">MENU2</a></li>
+                <li><a href="#">MENU3</a></li>
+                <li><a href="#">MENU4</a></li>
+            </ul>
+        </div>
+        <div>
+            <div id="content">
+            <h1>메인 내용</h1>
+                <p>
+                아무 내용이나 이곳으로 보내자
+                </p>
+            </div>
+            <div class="article">
+                <img src="img/googlelogo.png" width="100px" />
+                <img src="img/naverlogo.jpg" width="100px"/>
+            </div>
+        </div>
+        <div id="footer">
+            <p>비트캠프 서울시 서초구 강남대로 459 (서초동, 백암빌딩)<br>
+			(주)비트컴퓨터 서초본원<br>
+            </p>
+        </div>
+    </body>
+</html>

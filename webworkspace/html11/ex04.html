@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>ex04</title>
+<style rel="stylesheet" type="text/css">
+   
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var callback=function(){
+      alert('이벤트 호출');
+    };
+    $('button').eq(0).on('click',callback);
+    $('button').eq(0).on('click',function(){
+        console.log('on');
+    });
+    $('button').eq(1).on('click',function(){
+        $('button').eq(0).off('click',callback);
+        //취소하려는 명령을 명확히 해줘야 함
+        console.log('off');
+    });
+//  $('button').eq(2).on('click',function(){
+//      console.log('one');
+//      $(this).off();
+//      //한번만 실행되고 멈춤. 이걸 one함수로 쓰면  아래
+//  });
+    $('button').eq(2).one('click',function(){
+        console.log('one');
+    });
+});
+</script>
+</head>
+<body>
+    <h1>Event Binding - .off()</h1>
+    <button>on</button>
+    <button>off</button>
+    <button>one</button>
+</body>
+</html>

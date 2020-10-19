@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>ex05</title>
+<style rel="stylesheet" type="text/css">
+   
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+//    $('button').click(function(){
+//        console.log($(':text').val());
+//    });
+    $('button').on('click',['a','ab'],function(e,a,b,c){
+        console.log(e.data,a,b,c);
+        console.log($(':text').val());
+    });   
+    $('input').keyup(function(e){
+        if(e.keyCode==13)//enter 치면
+//        console.log($(this).val());
+//        $('button').trigger('click');
+//        $('button').click();//버튼 클릭 실행해라
+        $('button').trigger('click',['e','ee']);
+        //click이라는 이벤트에 값[ , ]을 전달해라.
+        //이 경우 위의 a,b 자리에 값을 전달함. 
+        //이렇게 전달하는 값을 argument라 함
+    });
+});
+</script>
+</head>
+<body>
+    <h1>Event Binding - .trigger()</h1>
+    <input type="text"/>
+    <button>입력</button>
+</body>
+</html>

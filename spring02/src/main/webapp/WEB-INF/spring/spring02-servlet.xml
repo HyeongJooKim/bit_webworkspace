@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- create dao object at init 생성자 호출-->
+ 	<bean id="emp" class="com.bit.framework.emp.model.EmpDao" scope="singleton">
+	<!-- scope : prototype, request, session, singleton  -->
+<!--*************************   의존 주입 DI패턴(Dependency Injection) 결합도↓ 재사용성&유지보수↑  **************************** -->
+		<!-- constructor-arg : 생성자를 통한 주입. 다만, 이름 붙이는 게 아니어서 순서 있음 -->
+		<constructor-arg value="org.mariadb.jdbc.Driver" />
+		<constructor-arg value="jdbc:mysql://localhost:3306/xe" />
+		<constructor-arg value="scott" />
+		<constructor-arg value="tiger" />
+		
+		<!-- db 바뀌어도 이부분만 수정하면 됨 -->
+		<!-- property tag : setter 메소드 호출 -->
+<!-- 	<property name="url" value="jdbc:mysql://localhost:3306/xe"></property> -->
+	</bean>
+	
+	<!-- handlermapping -->
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	
+	<bean name="/index.bit" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="index"></property>
+	</bean>
+	<bean name="/emp/list.bit" class="com.bit.framework.emp.controller.ListController">
+		<property name="dao">
+		<!-- setter를 호출하기 위한 이름. 즉 컨트롤러에서 사용할 변수이름과 세터 이름이 모두 일치해야 함. -->
+<!-- 		<bean class="com.bit.framework.emp.model.EmpDao"></bean> -->
+			<ref bean="emp" />
+		</property>
+	<!-- property로 쓴 것들 결국 모두 세터를 통한 주입 역할을 해주는 것. 값 없으면 널이므로 런타임 익셉션 발생함 -->
+	</bean>
+	<bean name="/emp/add.bit" class="com.bit.framework.emp.controller.AddController">
+<!-- 	한줄로 줄임 -->
+		<property name="dao" ref="emp">
+<!-- 	<bean class="com.bit.framework.emp.model.EmpDao"></bean> -->
+		</property>
+	</bean>
+	<bean name="/emp/detail.bit" class="com.bit.framework.emp.controller.DetailController">
+		<property name="dao" ref="emp" />
+	</bean>
+	<bean name="/emp/insert.bit" class="com.bit.framework.emp.controller.UpdateController">
+		<property name="dao" ref="emp" />
+	</bean>
+	
+	<!-- viewResolver -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+</beans>

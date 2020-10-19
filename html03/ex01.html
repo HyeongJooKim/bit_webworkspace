@@ -1,0 +1,69 @@
+<!--ex01-->
+<!doctype html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <style rel="stylesheet" type="text/css">
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: grey;
+        }
+        body>div:first-child{background-color: red;
+/*          position:static; 이게 디폴트 안쓰면 static*/
+        }
+        body>div:nth-child(2){background-color: greenyellow;
+/*          absolute; 절대좌표. static과 다른 layer 처럼 움직임. 즉 겹침*/
+            position:absolute;
+            top:30px;
+            left:30px;
+        }
+        body>div:nth-child(3){background-color: blue;
+/*          relative는 원래 자기 위치에서부터 시작해서 이동.
+            static과 같은 layer로 움직임. 빈자리를 static이 채우지는 않음
+            본인이 0,0일 때 원래 있었던 자리는 비어 있음
+            static과 다른 layer로 겹침. 정렬은 static과 같이 됨*/
+            position:relative;
+            top:25px;
+            left:25px;
+        }
+        body>div:nth-child(4){background-color: yellow;
+/*          화면상의 그 위치에 고정됨. 스크롤 해도 그자리에 고정되어 있음.
+            absolute처럼 다른 layer로 움직임. 정렬 안되고 가림. 이 공간을 감안해서 레이아웃 만들어야 함*/
+            position:fixed;
+            width: 75px;
+            top:0px;
+            left:0px;
+        }
+        body>div:nth-child(5){background-color: hotpink;
+/*          화면상의 그 위치에 고정됨. 스크롤 해도 그자리에 고정되어 있음.
+            absolute처럼 다른 layer로 움직임. 정렬 안되고 가림. 이 공간을 감안해서 레이아웃 만들어야 함*/
+            position:absolute;
+            width: 100px;
+            top:0px;
+            left:100px;
+        }
+        div>div{background-color: pink;
+            opacity: 0.5;
+            position: relative;
+            top:0px;
+/*          static일 때 부모의 텍스트 한줄 아래에 위치함. 즉, 부모와 겹칠 수 있음
+            따로 명기하지 않으면 부모의 position 속성을 따름. 
+            부모 위치 바뀌면 따라 움직임
+            별도로 position 설정하면 부모 위치가 시작점이 됨. 화면 전체가 아니라.
+            absolute면 부모의 시작점을 0,0으로
+            relative면 부모의 0,10을 시작점으로, 즉 static일 때와 같음            
+            */
+        }
+    </style>
+</head>
+<body>
+    <div>box1</div>
+    <div>box2</div>
+    <div>box3</div>
+    <div>box4</div>
+    <div>box5
+        <div>box5-2</div>
+    </div>
+</body>
+</html>

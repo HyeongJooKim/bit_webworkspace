@@ -1,0 +1,22 @@
+drop table mbr;
+drop sequence mbr_seq;
+create table mbr(
+	mno number constraint mbr_mno_pk primary key,
+	id varchar2(20) constraint mbr_id_uk unique constraint mbr_id_nn not null,
+	pw varchar2(20) constraint mbr_pw_nn not null,
+	name varchar2(20) constraint mbr_name_nn not null,
+	tel number(11) constraint mbr_tel_uk unique,
+	email varchar2(30) constraint mbr_email_uk unique,
+	lvl char(3) default 'L01' constraint mbr_lvl_fk references lvl(lvl)
+);
+create sequence mbr_seq;
+--input data
+insert into mbr values (mbr_seq.nextval,'user1','User!111','회원일','010-1234-1111','user1@bit.com','L01');
+insert into mbr values (mbr_seq.nextval,'user2','User@222','회원이','010-1234-1112','user2@bit.com','L01');
+insert into mbr values (mbr_seq.nextval,'user3','User#333','회원삼','010-1234-1113','user3@bit.com','L01');
+insert into mbr values (mbr_seq.nextval,'user4','User$444','회원사','010-1234-1114','user4@bit.com','L01');
+insert into mbr values (mbr_seq.nextval,'user5','User%555','회원오','010-1234-1115','user5@bit.com','L01');
+insert into mbr values (mbr_seq.nextval,'user6','User^666','회원육','010-1234-1116','user6@bit.com','L01');
+commit;
+
+select * from mbr;

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex02 </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+/*
+    $('h1').css('color','red');//tag selector
+    $('p').css('color','blue');
+    $('.cl1').css('color','yellow');//class selector
+    $('#it2').css('color','green');//id selector
+    $('h1,p').css('backgroundColor','grey');//여러개. ,대신 빈칸이면 자손이 되므로 주의
+    $('li:nth-child(2n)').css('backgroundColor','beige');
+    var h1=$('h1');
+*/
+/*
+    for(var i=0; i<h1.length; i++){
+        console.log(h1[i].css('color','red'));
+    }
+    이렇게 js에서처럼은 안됨. 왜? $의 DOM은 js의 DOM과 구조 다름.
+    $는 function임. 즉, parameter를 전달하고, 
+    return 값으로 jQuert object를 반환함
+    .css 같은 건 jQuery 객체에서만 쓸 수 있는 것.
+    h1.css('color','red');//이렇게 해야 적용됨
+    $('div+ul').css('color','aqua');
+*/
+/*  //Element selector
+    var h1=document.querySelector('h1');
+    var p1=document.querySelector('h1+p');
+    var p2=document.querySelector('h1+p+p');
+    var ps=[p1.p2];
+    var lis1=document.getElementsByTagName('li');//HTMLColletion
+    var lis2=document.querySelectorAll('div>ul>li');//Nodelist
+    $(h1).css('color','white');
+    $(lis1).css('color','grey');
+    $(lis2).css('color','pink');
+    //elememt selector 문자열이 아닌 js element를 그대로 전달
+    //다양한 형태를 넣어도 다 잘 알아서 jQuery 객체로 전달하고 있음.
+*/
+/*  //filtering
+    $('div>ul>li').eq(2).css('color','red');
+    //.eq(2) : index 2 위치만 선택하는 것
+    //chaining : 하나의 명령에 계속 이어서 연속으로 명령들을 수행하는 것.
+    $('div>ul>li').css('color','red').eq(0).css('backgroundColor','gray')
+    .next().css('backgroundColor','yellow')
+    .next().css('backgroundColor','beige');
+*/
+   //node접근. 번호는 0부터 (css는 1부터였음)
+    $('h1').next().next().next().children().children().first()
+        .parent().children().last().parent().parent()
+        .next().children().eq(6).children().children().eq(2)
+        .prev().css('color','red');
+}
+</script>
+</head>
+
+<body>
+    <h1>선택자</h1>
+    <p>엘리먼트를 선택합니다</p>
+    <p class="cl1">css의 선택자 그대로</p>
+    <div>
+        <ul>
+            <li>item1</li>
+            <li id="it2">item2</li>
+            <li>item3</li>
+            <li id="it4">item4</li>
+        </ul>
+    </div>
+    <ul>
+        <li>item1</li>
+        <li class="cl1">item2</li>
+        <li>item3</li>
+        <li class="cl1">item4</li>
+        <li class="cl1">item5</li>
+        <li>item6</li>
+        <li>
+            <ol>
+                <li>item7-1</li>
+                <li>item7-2</li>
+                <li>item7-3</li>
+                <li>item7-4</li>
+            </ol>
+        </li>
+    </ul>
+</body>
+</html>

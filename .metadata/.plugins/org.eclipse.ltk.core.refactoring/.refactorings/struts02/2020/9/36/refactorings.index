@@ -1,0 +1,9 @@
+1598921365092	Rename resource 'WEB-INF'
+1598922051729	Rename resource 'webapp'
+1598922067630	Rename resource 'WebContent'
+1598923124792	Rename type 'DeptVO'
+1598932800863	Encapsulate field 'dname'
+1598932806864	Encapsulate field 'loc'
+1598941125289	Copy file
+1598943769450	Copy file
+1598943774978	Delete element

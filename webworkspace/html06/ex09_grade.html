@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ex09_grade </title>
+</head>
+
+<body>
+    <h1>학생성적프로그램</h1>
+<script type="text/ecmascript">
+    var arr=new Array();
+    var obj={'num':1,'name':'stu1','kor':0,'eng':0,'math':0};
+    arr.push(obj);
+    obj={'num':2,'name':'stu2','kor':0,'eng':0,'math':0};
+    arr.push(obj);
+    obj={'num':3,'name':'stu3','kor':0,'eng':0,'math':0};
+    arr.push(obj);
+    
+    window.document.write('<table>');
+    window.document.write('<tr>');
+    window.document.write('<th>학번</th>');
+    window.document.write('<th>이름</th>');
+    window.document.write('<th>국어</th>');
+    window.document.write('<th>영어</th>');
+    window.document.write('<th>수학</th>');
+    window.document.write('</tr>');
+    for(var i=0; i<arr.length; i++){
+        obj=arr[i];
+        window.document.write('<tr>');
+        window.document.write('<td>'+obj.num+'</td>');
+        window.document.write('<td>'+obj.name+'</td>');
+        window.document.write('<td>'+obj.kor+'</td>');
+        window.document.write('<td>'+obj.eng+'</td>');
+        window.document.write('<td>'+obj.math+'</td>');
+        window.document.write('</tr>');
+    }
+    window.document.write('</table>');
+
+</script>
+</body>
+</html>

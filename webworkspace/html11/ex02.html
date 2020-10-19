@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<style rel="stylesheet" type="text/css">
+</style>
+<title>ex02</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+/*
+$(window).load(function(){
+    console.log('widow loading');//가장 마지막에 실행됨
+});   
+$(document).on('ready',function(){
+    console.log('on');//이방법도 가능함. 2번으로 실행됨
+});
+*/
+//  console.log('ready');//1번으로 실행됨. 그래서 이걸 쓰는 것
+$(document).ready(function(){
+    var idIn=function(){
+        $('#id').click(function(){
+            if($(this).val()=='아이디를 입력하세요'){
+                $(this).val('');
+            }
+        });
+    };
+    var pwIn=function(){
+        $('#pw').click(function(){
+            if($(this).val()=='비밀번호를 입력하세요'){
+                $(this).val('');
+            }
+        });
+    };
+        
+    $('#id').on('click focusin',idIn);//복수의 명령 조건을 문자열로 나열하면 모두의 조건에서 실행되는 것
+    $('#pw').on('click focusin',pwIn);
+ /* 위 두 줄로 줄일 수 있음.  
+    $('#id').focusin(function(){
+        if($(this).val()=='아이디를 입력하세요'){
+            $(this).val('');
+        }
+    $('#pw').focusin(function(){
+        if($(this).val()=='비밀번호를 입력하세요'){
+            $(this).val('');
+        }
+    });
+*/
+    $('#id').focusout(function(){
+        if($(this).val()==''){
+            $(this).val('아이디를 입력하세요');
+        }
+    });
+    $('#pw').focusout(function(){
+        if($(this).val()==''){
+            $(this).val('비밀번호를 입력하세요');
+        }
+    });
+});
+</script>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form>
+        <div>
+            <label for="id">id</label>
+            <input type="text" id="id" value="아이디를 입력하세요">
+        </div>
+        <div>
+            <label for="pq">pw</label>
+            <input type="text" id="pw" value="비밀번호를 입력하세요">
+        </div>
+        <div>
+            <button type="submit">전송</button>
+        </div>
+    </form>     
+</body>
+</html>

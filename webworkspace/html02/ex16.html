@@ -1,0 +1,71 @@
+<!--ex16-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            header,nav,section,aside,footer{
+                background-color: antiquewhite;
+                width: 500px;
+            }
+            section,aside{
+                width: 250px;
+                float: left;
+/*              float로 정렬하면 간격 없이 딱 붙기 때문에 크기만 잘 계산하면
+                좌우에 딱 붙게 할 수 있다.*/
+            }
+            nav,footer{
+                clear:left;
+            }
+            nav>ul{
+                width: 400px;
+                height: 50px;
+                padding: 0px;
+                margin: 0 auto;
+/*                메뉴를 가운데로 보내기*/
+            }
+            nav>ul>li{
+                list-style: none;
+                width: 100px;
+                float:left;
+                text-decoration: none;
+            }
+            nav>ul>li>a{
+                display: block;
+                height: 50px;
+                line-height: 50px;
+/*              디자이너들이 위아래 가운데 정렬 이렇게 하더라*/
+            }
+            aside{}
+            aside>ul>li{
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="img/logo.jpg" width="100"/>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Menu1</a></li>
+                <li><a href="#">Menu2</a></li>
+                <li><a href="#">Menu3</a></li>
+                <li><a href="#">Menu4</a></li>
+            </ul>
+        </nav>
+        <section>
+        <h1>Symantic type</h1>
+        </section>
+        <aside>
+            <ul>
+                <li><img src="img/googlelogo.png" width="100px"/></li>
+                <li><img src="img/naverlogo.jpg" width="100px"/></li>
+            </ul>
+        </aside>
+        <footer>
+            <p>footer</p>
+        </footer>
+        
+    </body>
+</html>

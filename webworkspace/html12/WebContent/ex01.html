@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex01.html</title>
+<style type="text/css">
+/* 	img{
+		width: 50px;
+	} */
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+//		$('#target').load('ex01.jsp',{'name':'small'},function(){
+//		$('#target').load('ex01.jsp',{'name':'big'},function(){
+		$('#target').load('ex01.jsp','name=big&cnt=2',function(){
+//			$('img').css('width','100px');
+		});
+		$('button').click(plus);
+	});
+	function plus(){
+		$('img').css('width','100px');
+	}
+</script>
+</head>
+<body>
+	<h1>jQuery 통신</h1>
+	<div id="target"></div>
+	<p>target에 파일 내용을 불러옵니다.</p>
+	<button>이미지 작게</button>
+</body>
+</html>

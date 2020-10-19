@@ -1,0 +1,65 @@
+package com.bit.web01;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketAddress;
+
+//웹서버 만들어보기
+
+public class Server extends Thread{
+	
+	Socket sock;
+
+	public Server(Socket sock) {
+		this.sock=sock;
+	}
+
+	@Override
+	public void run() {
+		OutputStream os=null;
+		try {
+			SocketAddress addr=sock.getRemoteSocketAddress();
+			System.out.println(addr.toString());
+			os=sock.getOutputStream();
+			os.write("hello world...".getBytes());
+			os.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(os!=null) os.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		super.run();
+	}
+
+	public static void main(String[] args) {
+		int port=8080;
+		ServerSocket serv=null;
+		
+		try {
+			serv=new ServerSocket(port);
+			//정말 서버라면 계속 열어놔야 함
+			while(true){
+				Socket sock=serv.accept();
+				Server thr=new Server(sock);
+				thr.start();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(serv!=null) serv.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	
+	}
+
+}

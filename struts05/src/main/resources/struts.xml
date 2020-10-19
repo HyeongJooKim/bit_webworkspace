@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+<!-- 	struts.properties 대신 쓰는 거 -->
+
+    <package name="basic" extends="struts-default">
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="dept" extends="basic">
+        <action name="dept" class="com.bit.dept.action.ListAction">
+            <result>/dept/list.jsp</result>
+        </action>
+        <action name="dadd" class="">
+            <result>/dept/add.jsp</result>
+        </action>
+        <action name="dinsert" class="com.bit.dept.action.DaddAction">
+        	<interceptor-ref name="prepare" />
+        	<interceptor-ref name="modelDriven" />
+        	<interceptor-ref name="params" />
+            <result name="input">/dept/add.jsp</result>
+            <result type="redirectAction">dept</result>
+        </action>
+        <action name="ddetail" class="com.bit.dept.action.OneAction">
+        	<interceptor-ref name="params" />
+            <result>/dept/detail.jsp</result>
+        </action>
+        <action name="dedit" class="com.bit.dept.action.OneAction">
+			<interceptor-ref name="params"/>
+			<result>/dept/edit.jsp</result>
+		</action>
+        <action name="dupdate" class="com.bit.dept.action.EditAction">
+        	<interceptor-ref name="prepare" />
+        	<interceptor-ref name="modelDriven" />
+			<interceptor-ref name="params"/>
+			<interceptor-ref name="validation"/>
+			<interceptor-ref name="workflow"/>
+			<result name="input" type="redirectAction">
+				<param name="deptno">${bean.deptno}</param>
+				<param name="actionName">dedit</param>
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="deptno">${bean.deptno}</param>
+				<param name="actionName">ddetail</param>
+			</result>
+		</action>
+        <action name="ddelete" class="com.bit.dept.action.DeleteAction">
+			<interceptor-ref name="params"/>
+			<result type="redirectAction">dept</result>
+		</action>
+    </package>
+  
+    <package name="emp" extends="basic">
+    	<action name="emp" class="com.bit.emp.action.ListAction">
+    		<interceptor-ref name="params"/>
+    		<result>/emp/list.jsp</result>
+    	</action>
+    	<action name="edetail" class="com.bit.emp.action.OneAction">
+    		<interceptor-ref name="modelDriven"/>
+    		<interceptor-ref name="params"/>
+    		<result>/emp/form.jsp</result>
+    	</action>
+    	<action name="eedit" class="com.bit.emp.action.OneAction">
+    		<interceptor-ref name="modelDriven"/>
+    		<interceptor-ref name="params"/>
+    		<result>/emp/form.jsp</result>
+    	</action>
+    	<action name="eadd">
+    		<result>/emp/form.jsp</result>
+    	</action>
+    </package>
+</struts>

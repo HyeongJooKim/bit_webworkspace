@@ -1,0 +1,6 @@
+drop table dpt;
+drop sequence 
+create table dpt(
+	dno
+
+);

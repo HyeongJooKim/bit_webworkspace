@@ -1,0 +1,24 @@
+drop table mbr;
+drop sequence mbr_seq;
+create table dpt(
+	mno number constraint mbr_mno_pk primary key,
+	id varchar2(20) constraint mbr_id_uk unique constraint mbr_id_nn not null,
+	pw varchar2(20) constraint mbr_pw_nn not null,
+	name varchar2(20) constraint mbr_name_nn not null,
+	tel number(11),
+	email varchar2(30),
+	grp char(3) default 'mem' constraint mbr_grp_ck check (lvl in('mem','reg','stu','alu',)) 
+);
+	--a: 직원정보 수정권한
+	--b: 학생 성적 정보 접근권한 
+	--c: LMS 접근권한
+create sequence dpt_seq;
+--input data
+insert into dpt values (dpt_seq.nextval,'영업','c');
+insert into dpt values (dpt_seq.nextval,'행정','b');
+insert into dpt values (dpt_seq.nextval,'회계','c');
+insert into dpt values (dpt_seq.nextval,'취업','b');
+insert into dpt values (dpt_seq.nextval,'관리','a');
+commit;
+
+select * from dpt;

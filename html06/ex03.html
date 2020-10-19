@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex03: JSON </title>
+<script type="text/javascript">
+    var str='{"key1":"val1"}';//JSON의 문자열 구조
+    var obj=JSON.parse(str);//object 객체로 변환
+    console.log(str, typeof str);//{"key1":"val1"} string
+    console.log(obj, typeof obj);//{key1: "val1"} "object"
+//  이종간의 통신에 많이 쓰임. 운영환경이 다르면 서로 다른 언어 못읽는다.
+//  오직 문자열만이 소통의 도구가 됨.
+//  문자 뿐 아니라 문자값의 형식까지 알려주는 방식이 가능한 언어가
+//  javascript(JSON덕분에), XML(Property)
+    var str2=JSON.stringify(obj);//JSON 문자열로 변환
+    console.log(str, typeof str2);//{"key1":"val1"} string
+
+</script>
+</head>
+<body>
+</body>
+</html>

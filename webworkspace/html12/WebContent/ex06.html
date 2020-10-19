@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex06</title>
+<style rel="stylesheet" type="text/css">
+	table{
+		border-collapse: collapse;
+	}
+	table,th,td{
+		border: 1px solid gray;
+	}
+	th{
+		width: 100px;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('<tr/>').append('<th>empno</th>')
+			.append('<th>ename</th>')
+			.append('<th>job</th>')
+			.append('<th>deptno</th>')
+			.appendTo('table');
+	$.get('emplist.bit',function(data){
+ 		$(data).find('emp').each(function(){
+ 			$('<tr/>').append('<th>'+$(this).children().eq(0).text()+'</th>')
+ 				.append('<th>'+$(this).children().eq(1).text()+'</th>')
+ 				.append('<th>'+$(this).children().eq(2).text()+'</th>')
+ 				.append('<th>'+$(this).children().eq(3).text()+'</th>')
+				.appendTo('table');
+ 		});
+	});
+});
+</script>
+</head>
+<body>
+	<h1>Emp List</h1>
+	<table/>
+</body>
+</html>

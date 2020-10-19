@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <display-name>web03</display-name>
+  <!-- 프로젝트마다 똑같은 게 생기는데 display name 만 다름 -->
+  
+  <welcome-file-list>
+  <!-- 여기 있는 파일들을 디폴트로 보여주는 이유 -->
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  	<description>파라미터 설명(옵셔널)</description>
+  	<param-name>bit</param-name>
+  	<param-value>class04</param-value>
+  </context-param>
+  
+</web-app>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ex11 </title>
+</head>
+
+<body>
+    <h1>리스트</h1>
+    <button onclick="func();">add</button>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+    </ul>
+    <script type="text/javascript">
+    var cnt=5;
+    function func(){
+        var ul=document.lastElementChild.lastElementChild.lastElementChild.previousElementSibling;
+        var item5=document.createElement('li');
+        var msg=document.createTextNode('item'+cnt++);
+        item5.appendChild(msg);
+        ul.appendChild(item5);
+    }
+    
+    </script>
+</body>
+</html>

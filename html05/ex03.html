@@ -1,0 +1,70 @@
+<!--ex03-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex03-function </title>
+<script type="text/javascript">
+    func01();//순서 무관. 나중에 선언해도 객체 지향적으로 잘 됨. 호출 만나면 선언쪽으로 찾아가서 수행하고 돌아오므로. 단, 변수는 못찾아감. func01()만 찾아가는 것
+    
+    function func01(x){
+        console.log('func01 x=',x);
+        return 1111;//모든 function에 return은 있다. 다만, return 할 값이 없으면 생략하는 것 뿐
+    }
+    function func01(x,y){//같은 이름의 함수 두 개 선언하니 덮어써버리네
+        console.log('func01 x y=',x,y);
+        return 4321;
+    }
+    var a=func01(123, 1234);
+    console.log(a);
+//  undefined 이 있어서 수행되는 경우가 많음. 
+//  따라서, 매개변수 차이로 인한 오버로드 불가능. 그냥 그 조건에서 수행해버림.
+    
+    var x=1234;
+    function func02(){
+        x=4321;//이걸 var x=4321;로 선언하면
+        console.log('func02 x='+x);//x=4321
+        return;
+    }
+    console.log('x='+x);//x=1234
+    func02();//펑션을 수행하면 x의 값이 4321로 변경되므로
+    console.log('x='+x);//x=4321 // 지역변수 var x=4321;로 선언되면 이건 전역변수인 x=1234 가져옴
+  
+    var y=1234;
+    function func03(y){//지역변수 지정이나 마찬가지
+        y=4444;   
+    }
+    func03(4321);
+    console.log('y:'+y);//1234나옴
+    
+//    아래와 같은 모양으로 많이 씀. 일회용이니 이름 선언 필요 없고, 선언과 호출을 한 번에 하는 방식
+    (function (){
+        var a=1234;
+        var b=4321;
+        console.log(a+b);
+    })();
+    
+    function func04(){
+//        arguments : function을 수행했을 때 생성되는 내장 배열
+//        for(var idx in arguments){
+//        console.log(arguments[idx])
+//        }
+//        return;
+        if(arguments[1])return arguments[0]+arguments[1];
+        else if(arguments[0])return arguments[0];
+//        오버로딩 처럼 수행되게 만들 수 있음
+        return 0;
+    }
+//    func04(1,2,3);
+    var z=func04(100,10);
+    console.log('z:'+z);
+    
+</script>
+</head>
+
+	<body>
+
+</body>
+</html>

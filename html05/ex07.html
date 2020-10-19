@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex07-clojure </title>
+<script type="text/javascript">
+//  js의 가장 중요한 특성 중 하나. 이걸 본따 java의 익명 클래스 만듬
+//  클로저 :  변수의 라이프사이클을 벗어나서도 계속 사용가능
+    function func01(){
+        var z=function(){console.log('test');};
+        return z;
+    }
+    var a=func01();
+    a();
+//    console.log(a);
+    
+    function func02(){
+        var obj={'k1':'v1'};
+        return function(){
+            console.log('func02'+obj.k1);
+        };
+    }
+    var b=func02();
+    b();
+    
+    </script>
+    </head>
+
+	<body>
+
+</body>
+</html>

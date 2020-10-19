@@ -1,0 +1,10 @@
+package com.bit.day19;
+
+public class Grade032T {
+//선생님코딩 방법 2. ArrayList 만 활용
+
+	public static void main(String[] args) {
+
+	}
+
+}

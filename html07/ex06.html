@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex06 </title>
+<style rel="stylesheet" type="text/css">
+</style>
+</head>
+
+<body>
+	<h1>event-level 1</h1>
+	<img src="" alt=""/>
+    <button onclick="next();">next</button>
+<script type=text/javascript>
+    var cnt=0;
+    next();
+    function next(){
+        if(cnt++==4){cnt=1;}
+        var img=document.querySelector('img');
+        img.outerHTML='<img src="img/'+cnt+'.png"/>';
+    }
+</script>
+</body>
+</html>

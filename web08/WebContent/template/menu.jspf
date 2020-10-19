@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+		<tr>
+			<td align="center" bgcolor="#FADD3B">
+				<a href="<%=path %>index.jsp">[HOME]</a>
+				<a href="<%=path %>emp/list.jsp">[EMP]</a>
+				<a href="<%=path %>dept/list.jsp">[DEPT]</a>
+				<a href="<%=path %>login/form.jsp">[LOGIN]</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<center>
+			<!-- content start -->

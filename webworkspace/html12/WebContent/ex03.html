@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex03.html</title>
+<style rel="stylesheet" type="text/css">
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax('ex01.jsp',{
+		'type': 'post',
+		'dataType':'html',//정보 안줘도 header 정보를 읽어준다
+		'data':'name=big&&cnt=2',//불러올 data를 제한
+/* 		'error':function(){
+			alert('err');
+		},
+*/
+		'error':function(jqXHR,textStatus,errorThrown){
+			console.log(jqXHR,textStatus,errorThrown);
+		},
+		'success':function(data,textStatus,jqXHR){
+//			alert('success');
+			console.log(typeof data);
+			console.log(data,textStatus,jqXHR);
+			$('#target').append(data);
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<h1>ajax 통신</h1>
+	<div id="target"></div>
+</body>
+</html>

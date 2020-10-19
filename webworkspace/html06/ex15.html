@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ex15 js animation </title>
+    <style rel="stylesheet" type="text/css">
+        h1+div {
+            background-color: beige;
+            overflow: hidden;
+            height: 160px;
+            width: 700px;
+        }
+        h1+div>ul {
+            padding: 0px;
+        }
+        h1+div>ul>li {
+            list-style: none;
+            float: left;
+        }
+        h1+div>ul>li>img {}
+    </style>
+</head>
+
+<body>
+    <h1>애니메이션</h1>
+    <div>
+        <ul>
+            <li><img src="img/1.png" /></li>
+            <li><img src="img/2.png" /></li>
+            <li><img src="img/3.png" /></li>
+            <li><img src="img/4.png" /></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var ul = document.querySelector('ul');
+        ul.style.marginLeft = '0px';
+        var boo = true;
+
+        function move() {
+            if (parseInt(ul.style.marginLeft) == -700) {
+                boo = false;
+            }else if (parseInt(ul.style.marginLeft) == 0) {
+                boo = true;
+            }
+            if (boo) {
+                ul.style.marginLeft = parseInt(ul.style.marginLeft) - 10 + 'px';
+            } else {
+                ul.style.marginLeft = parseInt(ul.style.marginLeft) + 10 + 'px';
+            }
+        }
+        setInterval(move, 100);
+    </script>
+</body></html>

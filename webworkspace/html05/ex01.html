@@ -1,0 +1,33 @@
+<!--ex01-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex01 </title>
+</head>
+<script type="text/javascript">
+    var a;
+    a=1234;
+    console.log('a:', a);//a: 1234
+    func01();//func01 run
+    
+//  function 선언 위치 무관, 호출 먼저 하고 나중에 선언해도 잘 됨
+//  선언시 타입 안씀, 그냥 변수 이름과 수만 필요
+    function func01(){
+        console.log("func01 run");
+    }
+    
+    function func02(x,y){
+        console.log("func02 run");
+        return x+y;
+    }
+    var c=func02(a,1);//func02 run
+    console.log(c);//1235
+    
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+drop table lvl;
+create table lvl(
+	lvl char(3) constraint lvl_lvl_pk primary key,
+	lname varchar2(20) constraint lvl_lname_nn not null constraint lvl_lname_uk unique,
+	ldesc varchar2(50) 
+);
+--input data
+insert into dpt values (dpt_seq.nextval,'영업','c');
+insert into dpt values (dpt_seq.nextval,'행정','b');
+insert into dpt values (dpt_seq.nextval,'회계','c');
+insert into dpt values (dpt_seq.nextval,'취업','b');
+insert into dpt values (dpt_seq.nextval,'관리','a');
+commit;
+
+select * from dpt;

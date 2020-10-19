@@ -1,0 +1,39 @@
+package com.bit.util;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
+
+public class Ex02 implements Filter{
+
+	@Override
+	public void destroy() {
+		System.out.println("Filter destroy・");
+	}
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException {
+		System.out.println("Filter doFilter・");
+		HttpServletResponse resp = (HttpServletResponse)response;
+//		ServletRequest resp = (HttpServletResponse)response;
+		PrintWriter out = response.getWriter();
+		out.print("abcdefg・");
+		out.flush();
+		
+	}
+
+	@Override
+	public void init(FilterConfig Config) throws ServletException {
+		System.out.println("Filter init・" + Config.toString());
+		
+	}
+
+}

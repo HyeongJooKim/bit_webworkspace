@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<style rel="stylesheet" type="text/css">
+    label{width: 100px;}
+</style>
+<title>ex13</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#id,#pw').focusin(function(e){//focus 대신
+        $(e.target).next().remove();
+    });
+    $('#id,#pw').focusout(function(e){//blur 대신
+        if($(e.target).val()==''){
+           $('<span class="err">비었음</span>').insertAfter(e.target);
+        }else if($(e.target).val().length<4){
+           $('<span class="err">짧음</span>').insertAfter(e.target);
+           $(e.target).select();//입력된 값을 선택한 채로 focus됨
+        }
+    });
+    
+//  원래 select는 drag 해서 선택하면 이벤트 발생함.
+//  $('#id').select(function(e){
+//     alert($(e.target).val().length+'자 입력됨');
+//  });
+    
+    $('select').change(function(e){
+        console.log($(e.target).val());
+    });
+    $(':radio,:checkbox').change(function(e){
+//      console.log($(e.target).next().text());
+        console.log($(e.target).attr('id'));
+    });
+      
+    $('form').submit(function(){
+        $('.err').remove();
+        if($('#id').val()==''){
+            $('<span class="err">아이디를 입력하세요</span>').insertAfter('#id');
+            $('#id').focus();
+            return false;
+        }
+        if($('#pw').val()==''){
+            $('<span class="err">비밀번호를 입력하세요</span>').insertAfter('#pw');
+            $('#pw').focus();
+            return false;
+        }
+        return true;
+    });
+});
+</script>
+</head>
+<body>
+<h1>회원가입(Form Events)</h1>
+<form action="">
+    <div>
+        <label for="id">id</label>
+        <input type="text" name="" id="id">
+    </div>
+    <div>
+        <label for="pw">pw</label>
+        <input type="password" name="pw" id="pw">
+    </div>
+    <div>
+        <input type="radio" name="ra" id="ra1">
+        <label for="ra">ra1</label>
+        <input type="radio" name="ra" id="ra2">
+        <label for="ra">ra2</label>
+        <input type="radio" name="ra" id="ra3">
+        <label for="ra">ra3</label>
+    </div>
+    <div>
+        <input type="checkbox" name="cb" id="cb1">
+        <label for="cb">cb1</label>
+        <input type="checkbox" name="cb" id="cb2">
+        <label for="cb">cb2</label>
+        <input type="checkbox" name="cb" id="cb3">
+        <label for="cb">cb3</label>
+    </div>
+    <select>
+        <option>item1</option>
+        <option>item2</option>
+        <option>item3</option>
+        <option>item4</option>
+    </select>
+    <div>
+       <button type="submit">전송</button>
+       <button type="reset">취소</button>
+    </div>
+</form>
+</body>
+</html>

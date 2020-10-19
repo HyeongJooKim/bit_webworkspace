@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>ex07</title>
+<style rel="stylesheet" type="text/css">
+    div{}
+    div>ul{
+        width: 400px;
+        height: 25px;
+        padding: 0px;/*none 하면 안되네*/
+        margin: 0px auto;
+    }
+    div>ul>li{
+        line-height: 25px;
+        width: 100px;
+        height: 25px;
+        list-style: none;
+        float: left;
+        background-color: gray;
+    }
+    div>ul>li>ol{
+        list-style: none;/*li에 달아도 되지만 여기 다는 걸 선호*/
+        width: 100px;
+        padding: 0px;
+    }
+    div>ul>li>ol>li{
+        width: 100px;
+        height: 25px;
+        background-color: lightgray;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#menu>ul ol').hide();
+    
+    $('ul>li').mouseenter(function(){
+        $(this).find('ol').stop().slideDown(1000);
+    }).mouseleave(function(){
+        $(this).find('ol').stop().slideUp(1000);
+        //stop달면 그전에 수행되던 이전 animation을 멈춤
+    });
+});
+</script>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li>item1
+                <ol>
+                    <li>item1-1</li>
+                    <li>item1-2</li>
+                    <li>item1-3</li>
+                    <li>item1-4</li>
+                </ol>
+            </li>
+            <li>item2
+                <ol>
+                    <li>item2-1</li>
+                    <li>item2-2</li>
+                    <li>item2-3</li>
+                    <li>item2-4</li>
+                </ol>
+            </li>
+            <li>item3
+                <ol>
+                    <li>item3-1</li>
+                    <li>item3-2</li>
+                    <li>item3-3</li>
+                    <li>item3-4</li>
+                </ol>
+            </li>
+            <li>item4
+                <ol>
+                    <li>item4-1</li>
+                    <li>item4-2</li>
+                    <li>item4-3</li>
+                    <li>item4-4</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

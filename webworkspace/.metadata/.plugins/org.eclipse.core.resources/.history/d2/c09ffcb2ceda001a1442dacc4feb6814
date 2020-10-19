@@ -1,0 +1,31 @@
+drop table std;
+drop sequence std_seq;
+create table std(
+	sno number constraint std_sno_pl primary key,
+	lvl varchar2(30) constraint std_lvl_fk references mbr(lvl),
+	id varchar2(20) constraint std_id_fk references mbr(id),
+	cno number constraint std_cno_fk references crs(cno),
+	date1 date,
+	gr1 number(3) check (gr1 between 1 and 100),
+	date2 date,
+	gr2 number(3) check (gr2 between 1 and 100),
+	date3 date,
+	gr3 number(3) check (gr3 between 1 and 100)
+);
+create sequence std_seq;
+--input data
+insert into empl values (empl_seq.nextval,'2020-1-1','D01','bitjeju01');
+insert into empl values (empl_seq.nextval,'2020-3-1','D01','bitjeju02');
+insert into empl values (empl_seq.nextval,'2020-6-1','D02','bitjeju03');
+insert into empl values (empl_seq.nextval,'2020-8-1','D02','bitjeju04');
+insert into empl values (empl_seq.nextval,'2020-1-1','D02','bitjeju05');
+insert into empl values (empl_seq.nextval,'2020-3-1','D05','bitjeju06');
+insert into empl values (empl_seq.nextval,'2020-6-1','D04','bitjeju07');
+insert into empl values (empl_seq.nextval,'2020-8-1','D03','bitjeju08');
+insert into empl values (empl_seq.nextval,'2020-1-1','D03','bitjeju09');
+insert into empl values (empl_seq.nextval,'2020-3-1','D03','bitjeju10');
+insert into empl values (empl_seq.nextval,'2020-1-1','D06','bitadmin');
+
+commit;
+
+select * from std;

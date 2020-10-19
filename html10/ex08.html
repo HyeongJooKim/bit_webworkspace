@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex08 </title>
+<style rel="stylesheet" type="text/css">
+    ul>li{
+        list-style: none;
+        float: left;
+    }
+    img{height: 100px;}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    //append()
+    function func(){
+//      var first=$('ul>li').eq(0);
+//      $('ul').append(first);
+        $('ul').append($('ul>li').eq(0));
+    }
+    //appendTo()
+    function func02(){
+        $('ul>li').eq(0).appendTo('ul');
+    }
+    window.onload=function() {
+        setInterval(func,1000);
+//      setInterval(func02,1000);
+    };
+</script>
+</head>
+
+<body>
+    <h1>케러셀 append, appendTo</h1>
+    <ul>
+        <li><img src="img/lego1.jpg" alt=""/></li>
+        <li><img src="img/lego2.jpg" alt=""/></li>
+        <li><img src="img/lego3.jpg" alt=""/></li>
+        <li><img src="img/lego4.jpg" alt=""/></li>
+        <li><img src="img/lego5.jpg" alt=""/></li>
+        <li><img src="img/lego6.jpg" alt=""/></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+drop table mbr;
+drop sequence mbr_seq;
+create table mbr(
+	mno number constraint mbr_mno_pk primary key,
+	id varchar2(20) constraint mbr_id_uk unique constraint mbr_id_nn not null,
+	pw varchar2(20) constraint mbr_pw_nn not null,
+	name varchar2(20) constraint mbr_name_nn not null,
+	tel number(11) constraint mbr_tel_uk unique,
+	email varchar2(30) constraint mbr_email_uk unique,
+	lvl char(3) default 'L01' constraint mbr_lvl_fk references lvl(lvl)
+);
+create sequence mbr_seq;
+--input data
+insert into mbr values (mbr_seq.nextval,'user1','User!111','유저일','01012341111','user1@bitjeju.com','L01');
+insert into mbr values (mbr_seq.nextval,'user2','User@222','유저이','01012341112','user2@bitjeju.com','L01');
+insert into mbr values (mbr_seq.nextval,'user3','User#333','유저삼','01012341113','user3@bitjeju.com','L01');
+insert into mbr values (mbr_seq.nextval,'user4','User$444','유저사','01012341114','user4@bitjeju.com','L01');
+insert into mbr values (mbr_seq.nextval,'user5','User%555','유저오','01012341115','user5@bitjeju.com','L01');
+insert into mbr values (mbr_seq.nextval,'user6','User^666','유저육','01012341116','user6@bitjeju.com','L01');
+insert into mbr values (mbr_seq.nextval,'user7','User^667','영업일','01012341117','user6@bitjeju.com','L11');
+insert into mbr values (mbr_seq.nextval,'user8','User^668','영업이','01012341118','user6@bitjeju.com','L11');
+insert into mbr values (mbr_seq.nextval,'bitjeju01','Bitjeju!111','행정일','01012341119','bitjeju01@bitjeju.com','L12');
+insert into mbr values (mbr_seq.nextval,'bitjeju02','Bitjeju@222','행정이','01012341120','bitjeju02@bitjeju.com','L12');
+insert into mbr values (mbr_seq.nextval,'bitjeju03','Bitjeju#333','행정삼','01012341121','bitjeju03@bitjeju.com','L12');
+insert into mbr values (mbr_seq.nextval,'bitjeju04','Bitjeju$444','회계일','01012341122','bitjeju04@bitjeju.com','L13');
+insert into mbr values (mbr_seq.nextval,'bitjeju05','Bitjeju%555','취업일','01012341123','bitjeju05@bitjeju.com','L12');
+insert into mbr values (mbr_seq.nextval,'bitjeju06','Bitjeju^666','설민석','01012341124','bitjeju06@bitjeju.com','L12');
+insert into mbr values (mbr_seq.nextval,'bitjeju07','Bitjeju&777','정승제','01012341125','bitjeju07@bitjeju.com','L12');
+insert into mbr values (mbr_seq.nextval,'bitjeju08','Bitjeju*888','황현필','01012341126','bitjeju08@bitjeju.com','L12');
+insert into mbr values (mbr_seq.nextval,'bitadmin','Admin!111','관리일','01012341127','bitadmin@bitjeju.com','L13');
+commit;
+
+select * from mbr;
+
+desc mbr;

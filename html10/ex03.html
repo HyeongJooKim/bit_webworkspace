@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex03 </title>
+<style rel="stylesheet" type="text/css">
+    .size100{
+        width: 100px;
+    }
+</style>
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function() {
+//  getter: 인자 하나
+//  setter : 인자 2개 (값으로는 String, Number, Null 가능)
+//  $('img').attr('src','img/lego1.jpg');
+    $('a').attr('href','ex01.html');
+
+//  setter : PlainObject도 가능
+//  $('img').attr({'src':'img/lego1.jpg'});
+
+//  setter : 이미지 여러개 넣으려면? function 사용
+    $('img').attr('src',function(idx){
+        return 'img/lego'+(idx+1)+'.jpg';
+    });//img tag 갯수만큼 반복
+    
+//  속성부여는 기본적으로 attr를 쓰나, 때로 val, prop 써야 하는 경우 아래
+    
+//  console.log($('input').attr('value'));
+//  코드에 value 안 넣으면 undefined로 나옴. 따라서 input일 때는 이거 말고 아래를 쓴다.
+    console.log($('input').val());//값 없으면 그냥 빈값으로 나옴
+    //속성이 'checked', 'selected','readonly' 등일 때는 attr 쓰지 말고 .prop()써야 함
+    //prop은 boolean 값 리턴함
+    console.log($('input').prop('readonly'));//true, false로 잘 나옴. attr로는 이게 안됨
+    
+    //class의 경우
+    $('img').addClass('size100');
+    $('img').removeClass('size100');
+    
+};
+</script>
+</head>
+
+<body>
+    <h1>.attr() .val() .prop()</h1>
+    <input type="text"/>
+    <p>내용</p>
+    <a href="#">link</a><br>
+    <img/>
+    <img/>
+    <img/>
+    <img/>
+</body>
+</html>

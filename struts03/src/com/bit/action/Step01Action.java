@@ -1,0 +1,36 @@
+package com.bit.action;
+
+import com.opensymphony.xwork2.Action;
+
+public class Step01Action implements Action{
+
+	int sabun;
+	String name;
+	
+	public int getSabun() {
+		return sabun;
+	}
+	public void setSabun(int sabun) {
+		this.sabun = sabun;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Step01Action(int sabun, String name) {
+		super();
+		this.sabun = sabun;
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Step01Action [sabun=" + sabun + ", name=" + name + "]";
+	}
+	@Override
+	public String execute() throws Exception {
+		System.out.println("sabun="+sabun+",name="+name);
+		return Action.SUCCESS;
+	}
+}

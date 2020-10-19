@@ -1,0 +1,4 @@
+#struts.properties
+struts.devMode=true
+struts.action.extension=bit
+struts.i18n.encoding=UTF-8

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+    
+    <struts>
+	<package name="default" extends="struts-default">
+		<action name="index">
+			<result type="dispatcher" name="success">/index.jsp</result>
+<!-- 		type="dispatcher" name="success" 생략된 것, 즉 forward 였던 셈 -->
+		</action>
+		
+		<action name="main">
+			<result type="redirect">/index.bit</result>
+<!-- 		여기선 / 안넣는다. 왜냐? context 경로 사라짐 -->
+		</action>
+		
+		<action name="etc">
+			<result type="redirectAction">index</result>
+<!-- 		action name만 넣으면 되므로 확장자 안 씀 -->
+		</action>
+		
+	</package>
+</struts>
+
+<!-- http://localhost:8080/struts03/index.action -->
+<!-- 콘솔에 아래 메시지 나옴 -->
+<!-- *********************************************************************** -->
+<!-- *                               WARNING!!!                            * -->
+<!-- *                                                                     * -->
+<!-- * >>> FilterDispatcher <<< is deprecated! Please use the new filters! * -->
+<!-- *                                                                     * -->
+<!-- *           This can be a source of unpredictable problems!           * -->
+<!-- *                                                                     * -->
+<!-- *              Please refer to the docs for more details!             * -->
+<!-- *            http://struts.apache.org/2.x/docs/webxml.html            * -->
+<!-- *                                                                     * -->
+<!-- *********************************************************************** -->

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex10 </title>
+<style rel="stylesheet" type="text/css">
+    #target{
+        width: 300px;
+        height: 100px;
+        background-color: aqua;
+    }
+</style>
+<script type=text/javascript>
+    window.onload=function(){
+        var target=document.querySelector('#target');
+        var body=document.querySelector('body');
+//        function over(){
+//            console.log('mouse over');
+//        }
+//        function out(){
+//            console.log('mouse out');
+//        }
+//        target.onmouseover=over;
+//        over, out: body에서 target으로 이동하면 body에서 out하고 두군데 가 over함.
+//        즉, 하나의 layer처럼 인식.
+//        body.onmouseover=over;
+//        target.onmouseout=out;
+//        body.onmouseout=out;
+        
+        function enter(){
+            console.log('mouse enter');
+        }
+        function leave(){
+            console.log('mouse leave');
+        }
+        target.onmouseenter=enter;
+        body.onmouseenter=enter;
+        target.onmouseleave=leave;
+        body.onmouseleave=leave;
+//      enter, leave: body에서 target으로 이동하면 body에서 out하지 않고 
+//      다른 layer로 target으로 들어감. 이 것들을 더 많이 쓰게 될 것.
+    };
+  
+</script>
+</head>
+
+<body>
+	<h1>마우스 모션 이벤트</h1>
+    <div id="target"></div>
+</body>
+</html>
+

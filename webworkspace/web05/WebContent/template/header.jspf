@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%!
+//! 빼도 되나 그럼 초기화 필요. 변수 선언부에 있으면 초기화 안하면 디폴트값으로 초기화됨.
+//이 선언부의 위치는 반드시 먼저 와야 하므로 헤더에 위치시킴
+java.sql.Connection conn;
+java.sql.Statement stmt;
+java.sql.ResultSet rs;
+String driver="oracle.jdbc.driver.OracleDriver";
+String url="jdbc:oracle:thin:@localhost:1521:xe";
+String user="scott";
+String password="tiger";
+%>
+<table width=100% align="center" bgcolor="white">
+<!-- header.jspf -->
+	<tr>
+		<td>
+			<img src="/web05/img/logo.png">
+		</td>
+		<td align="right">
+			<%
+			Object obj=session.getAttribute("name");
+			if(obj!=null){
+				String loginName=(String)obj;
+				out.print(loginName+"님 로그인 중");
+				
+			}
+			%>
+		</td>
+	</tr>

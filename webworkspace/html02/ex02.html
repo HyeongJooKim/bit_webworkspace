@@ -1,0 +1,25 @@
+<!--ex02.html 비표준에서 사용하던 방식. 시맨틱 역할. 
+지금도 많이 쓰임. 제어가 쉽다. 이름 붙여서 시멘틱 기능도 함-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <!--블럭으로 그루핑-->
+        <div id="header">header</div>
+        <div id="menu">menu</div>
+        <div id="content">section</div>
+        <!-- id : 이름 지정하는 것이므로 한 문서에서 하나의 이름은 한번만 지정해야 함
+        class는 그 클래스를 지칭하는 것이라 여러번 줄 수 있다-->
+        <div class="article">article</div>
+        <div class="article">aside</div>
+        <!--article, aside의 구분이 없었다-->
+        <div id="footer">footer</div>
+        <!--라인으로 그루핑-->
+        <span>스팬1</span>
+        <span>스팬2</span>
+        <span>스팬3</span>
+        <span>스팬4</span>
+    </body>
+</html>

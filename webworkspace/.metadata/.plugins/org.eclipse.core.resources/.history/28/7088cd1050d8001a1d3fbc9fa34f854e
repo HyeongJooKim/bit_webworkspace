@@ -1,0 +1,20 @@
+drop table dpt;
+drop sequence dpt_seq;
+create table dpt(
+	dno number primary key,
+	dname varchar2(20) not null,
+	lvl char(1) default 'c' check (lvl in('a','b','c')) 
+);
+	--a: 직원정보 수정권한
+	--b: 학생 성적 정보 접근권한 
+	--c: LMS 접근권한
+create sequence dpt_seq;
+--input data
+insert into dpt values (dpt_seq.nextval,'영업','c');
+insert into dpt values (dpt_seq.nextval,'행정','b');
+insert into dpt values (dpt_seq.nextval,'회계','c');
+insert into dpt values (dpt_seq.nextval,'취업','b');
+insert into dpt values (dpt_seq.nextval,'관리','a');
+commit;
+
+select * from dpt;

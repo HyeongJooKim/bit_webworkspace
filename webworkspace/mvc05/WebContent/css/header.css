@@ -1,0 +1,31 @@
+	#menu{
+		border-bottom-color: gray;
+		border-bottom-style: solid;
+		border-bottom-width: 3px;
+	}
+	#menu>img{}
+	#menu>ul{
+		display: inline-block;
+		width: 440px;
+		list-style: none;
+		overflow: hidden;
+	}
+	#menu>ul>li{
+		width: 100px;
+		float: left;
+		margin: 0px 5px;
+		border-left: 1px solid gray;
+		border-right: 1px solid gray;
+	}
+	#menu>ul>li>a{
+		display: block;
+		height: 30px;
+		text-decoration: none;
+		text-align: center;
+		color: gray;
+		line-height: 30px;
+	}
+	#menu>span{
+		float: right;
+		margin-right: 100px;
+	}

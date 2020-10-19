@@ -1,0 +1,69 @@
+<!--ex09.html js 자료형-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> js 자료형 </title>
+<script type="text/javascript">
+//  변수에 타입을 미리 정하지 않고 입력되는 값의 타입마다 모든 자료형을 받아들임
+//  object으로 boxing, unboxing이 그때 그때 이루어지는 것
+    
+//  1. number - 실수 타입이 기본이나 정수면 정수 반환함. char도 number 타입
+//  0x0000 ~ 0ffff
+//  var a; 변수 선언 안해도 잘 됨
+    a=1234;
+    console.log(a);//1234
+    var b;
+    b=a+1;
+    console.log(b);//1235
+    var c;
+    c='C';
+    console.log(typeof a);//number
+    console.log(c);//C
+    
+    a=5;
+    a=a/2;
+    console.log(a);//2.5
+    console.log(typeof a);//number
+    
+//  2. string - '', "" 둘 다 가능 (단, json은 구분함) '출력하려면 \'
+    a="hello";
+    console.log(a);//hello
+    console.log(typeof a);//string
+    a='\"abc\"';
+    console.log(a);//"abc"
+    console.log(typeof a);//string
+    
+//  3. boolean - 제어문에서 특이사항 확인
+    a=true;
+    console.log(a);//true
+    console.log(typeof a);//boolean
+    
+//  4. object - 객체 생성
+    a=new Object();
+    console.log(a);//{}
+    console.log(typeof a);//object
+    
+//  5. array
+    a=new Array();
+    console.log(a);//[]
+    console.log(typeof a);//object
+    
+//  6. null - 값이 없어서 null을 입력해 준 것
+    a=null;
+    console.log(a);//null
+    console.log(typeof a);//object
+    
+//  7. function
+    function func01(){}
+    console.log(typeof func01);//function
+    
+//  8. undefined 타입. null과 다름. 값을 모르는 것.
+    console.log(typeof e);//undefined
+</script>
+</head>
+<body>
+</body>
+</html>

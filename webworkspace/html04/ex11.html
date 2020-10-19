@@ -1,0 +1,39 @@
+<!--ex11.html js 제어문-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> js 제어문 </title>
+<script type="text/javascript">
+//조건문
+    var a;
+//  a=null;//false
+//  a="null";//true
+//  a="";//false
+//  a=1;//true
+//  a=0;//false
+    if(a){
+        console.log('true');
+    }else{
+        console.log('false');
+    }
+//switch
+    var b;
+//  b1=1;//1입니다
+    b=1;//몰라
+    switch(b){
+        case 5>2 : console.log('2입니다'); break;
+            //true면이나 마찬가지. js는 조건에 연산식이 가능함
+        case '1' : console.log('1입니다'); break;
+        case true : console.log('0입니다'); break;
+        case -1 : console.log('-1입니다'); break;
+        default : console.log('몰라');
+    }
+    
+</script>
+</head>
+<body>
+</body>
+</html>

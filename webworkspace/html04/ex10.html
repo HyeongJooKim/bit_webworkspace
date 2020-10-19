@@ -1,0 +1,54 @@
+<!--ex10.html js 연산자-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> js 연산자 </title>
+<script type="text/javascript">
+//  연산
+//  ()
+//  ++, --
+//  +, -, *, /, % 나머지
+//  <, >, >=, <=
+//  == 같다, === 타입도 같다
+//  != 값이 같지 않다, !== 타입은 같지 않다
+//  &&, ||
+    var a=2;
+    var b=a==2;
+    console.log(b);//true
+    var b=a===2;
+    console.log(b);//true
+    var b=a=='2';
+    console.log(b);//true ==는 value만이라도 같은 것
+    var b=a==='2';
+    console.log(b);//false ===는 value 뿐 아니라 type까지 같은 것
+    console.log(true&&true);//true
+    var c;
+    console.log(c+1);//NaN (Not a Number);
+    console.log(true+1);//2
+    console.log(false+1);//1
+    console.log(true==1, true===1);//true false
+    console.log(c==0, c===0);//false false undefined는 뭐와 비교해도 false
+    console.log(null==0, null===0);//false false null도 뭐와 비교해도 false
+    console.log(c==null, c===null);//true false. null과 undefined는 값은 true
+    
+    var d='5';
+    console.log(d+1, 1+d, d-1, d*2, d/2, d%2);//51 15 4 10 2.5 1
+    //+하면 51 문자와 숫자 연산, 순서 무관하게 문자연산함.
+    //+이외의 연산은 문자는 불가하니 알아서 잘 숫자로 연산함
+    console.log(d*1+1, parseInt(d)+1);//6 6
+    //정 더하고 싶으면 *1하면 숫자로 인식하므로 그 후 연산 하면 됨
+    //parseInt도 가능
+    
+    var e='500원';
+    console.log(parseInt(e)-100);//400
+    var e='$500';
+    console.log(parseInt(e)-100);//NaN 숫자로 시작해야 parse 가능함  
+    
+</script>
+</head>
+<body>
+</body>
+</html>

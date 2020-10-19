@@ -1,0 +1,66 @@
+<!--ex03-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--해상도 다른 조건에서 폰트 너무 작아지는 것 방지해주는 것-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--ms edge가 크롬의 오픈소스 버전인 크로미움 기반으로 바뀌었는데
+   그 이전 버전은 호환 안되어 이전 edge 버전 처리하기 위한 meta tag-->
+    <style rel="stylesheet" type="text/css">
+        @media screen and (min-width: 1024px) {
+        /*screen이 디폴트인 셈
+        screen에 조건 주는 것은 mobile조건에서 중요함
+        하나의 페이지를 해상도에 따라 자동으로 
+        다른 디자인을 보일 수 있게 동적 연동 되게 가능
+        이건 PC용으로
+        나중에 쓸 bootstrap에서는 더 많은 종류의 Media 탭 있음 
+        (phone, tablet, desktop용 2가지로 총 4가지)
+        */
+            body {
+                background-color: black;
+                color: white;
+            }
+            h1 {
+                background-color: red;
+            }
+            p {
+                background-color: yellow;
+            }
+        }
+
+        @media screen and (max-width: 1023px) {
+            /*이건 모바일 용으로 할 수 있음*/
+            body {
+                background-color: yellow;
+            }
+        }
+
+        @media print {
+            /*인쇄용 화면을 설정*/
+            body {
+                background-color: white;
+                color: black;
+            }
+            h1 {
+                background-color: grey;
+            }
+            p {
+                background-color: beige;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Media Tag</h1>
+    <p>미디어 태그는 다음과 같습니다</p>
+    <ul>
+        <li>디바이스 종류에 따라 다르게 표현합니다</li>
+        <li>다음</li>
+        <li>다음</li>
+        <li>다음</li>
+    </ul>
+</body></html>

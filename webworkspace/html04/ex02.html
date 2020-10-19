@@ -1,0 +1,50 @@
+<!--ex02-->
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <style rel="stylesheet" type="text/css">
+        div {
+            height: 497px;
+            border-bottom: 1px solid gray;
+        }
+
+        div>span {
+            display: inline-block;
+            margin-top: 400px;
+            width: 100px;
+            height: 100px;
+            background-image: url(img/2.png);
+            background-repeat: no-repeat;
+            background-size: 100px;
+            animation-name: ani1;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: paused;
+        }
+
+        @keyframes ani1 {
+            from {
+                margin-top: 397px;
+                /*                transform: rotate(0deg);*/
+                transform: scale(1);
+            }
+
+            to {
+                margin-top: 0px;
+                /*                transform: rotate(720deg);*/
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    <div>
+        <span>
+        </span>
+    </div>
+</body></html>

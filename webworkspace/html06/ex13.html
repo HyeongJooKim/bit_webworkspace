@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ex13 </title>
+    <style rel="stylesheet" type="text/css">
+        ul{
+            overflow: hidden;
+            height: 160px;
+            width: 600px;
+        }
+        ul>li{
+            list-style: none;
+            float: left;
+        }
+        ul>li>img{}
+    
+    </style>
+</head>
+
+<body>
+    <h1>셔플</h1>
+ 
+    <ul>
+        <li><img src="img/1.png"/></li>
+        <li><img src="img/2.png"/></li>
+        <li><img src="img/3.png"/></li>
+        <li><img src="img/4.png"/></li>
+        <li><img src="img/logo.jpg"/></li>
+    </ul>
+    
+<script type="text/javascript">
+    var ul=document.querySelector('ul');
+    function loop(){
+        var first=ul.firstElementChild;
+        ul.appendChild(first);
+        //move하는 개념임.값만 붙여주는 게 아니라
+        setTimeout(loop,3000);
+    }
+    setTimeout(loop,3000);
+  
+</script>
+</body>
+</html>

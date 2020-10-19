@@ -1,0 +1,18 @@
+drop table att;
+drop sequence att_seq;
+create table att(
+	ano number constraint att_ano_pk primary key,
+	cno number constraint att_cno_fk references crs(cno),
+	sno number constraint att_sno_fk references	std(sno),
+	adate date default sysdate,
+	ckin boolean,
+	ckout boolean
+);
+create sequence att_seq;
+--input data
+
+
+
+commit;
+
+select * from att;

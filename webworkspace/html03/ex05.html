@@ -1,0 +1,132 @@
+<!--ex05-->
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <style rel="stylesheet" type="text/css">
+        
+        #menu{
+            overflow: hidden;
+            background-color: grey;
+        }
+        #menu>ul{
+            overflow: hidden;
+            width: 607px;
+            padding: 0px;
+            margin:5px auto;
+            
+        }
+        #menu>ul>li{
+            border-left: 1px solid white;
+            list-style: none;
+            height: 30px;
+            width: 100px;
+            float: left;
+            display: block;
+/*
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            overflow: hidden;
+*/
+        }
+        #menu>ul>li>a{
+            display: block;
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            overflow: hidden;
+        }
+        
+        #menu>ul>li>ol{
+            margin-top: 25px;
+        }
+        #menu>ul>li:last-child{
+            border-right: 1px solid white;
+        }
+/*
+        #menu>ul>li:hover{
+            text-align: center;
+            text-decoration: none;
+        }
+*/
+        #menu>ul>li:hover{
+            color:aqua;
+            height: 100px;
+        }
+        #header{
+            
+        }
+        #header>h1{
+            background-image: url(img/logo.png);
+            text-indent: -900px;
+            background-repeat: no-repeat;
+        }
+        #section{
+            width: 70%;
+            float: left;
+            background-color: aqua
+        }
+        .article{
+            width:30%;
+            float: left;
+        }
+        .article>a{
+            display: block;
+        }
+        .article>a:first-child{
+            background-image: url(img/naverlogo.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 100px;
+            text-indent: -99999px;
+        }
+        .article>a:nth-child(2){
+            background-image: url(img/googlelogo.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 100px;
+            text-indent: -99999px;
+        }
+        #footer{
+            clear: both;
+            background-color: grey;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>비트교육센터</h1>
+    </div>
+    <div id="menu">
+        <ul>
+            <li><a href="">비트캠프</a></li>
+            <li><a href="">교육센터</a></li>
+            <li><a href="">교육과정</a>
+                <ol>
+                    <li><a href="">과정1</a></li>
+                    <li><a href="">과정2</a></li>
+                    <li><a href="">과정3</a></li>
+                </ol>
+            </li>
+            <li><a href="">커뮤니티</a></li>
+            <li><a href="">지원센터</a></li>
+            <li><a href="">멘토링</a></li>
+        </ul>
+    </div>
+    <div id="section">
+        <h2>java</h2>
+        <p>열심히</p>
+    </div>
+    <div class="article">
+        <a href="http://naver.com">네이버</a>
+        <a href="http://google.com">구글</a>
+        <a href="http://daum.net">다음</a>
+    </div>
+    <div id="footer">
+        Copyright &copy; 비트캠프 All rights reserved.
+    </div>
+</body></html>

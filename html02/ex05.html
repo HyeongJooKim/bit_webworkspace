@@ -1,0 +1,50 @@
+<!--ex05. css 선택자-->
+<!doctype html>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            h2{color: green;}
+            ul{color: hotpink;}
+            ol{color: gray;}
+            #id01{background-color: aqua;}
+            .cl01{background-color: bisque; color: red;}
+            .cl02{background-color: yellow;}
+            li{color: brown}
+            
+        </style>
+    </head>
+    <body>
+        <h1>CSS 선택자</h1>
+        <h2>선택자의 종류</h2>
+        <ul>
+            <li>태그선택자 - tag{ : ;}</li>
+            <li>아이디선택자 - #id{ : ;}</li>
+            <li>클래스선택자 - .class{ : ;}</li>
+        </ul>
+        <h2>선택자의 우선순위</h2>
+        <p>동등 레벨에서의 선택자는 최후 적용 속성이 적용됨</p>
+        <p>다른 레벨에서의 선택자의 우선순위는<br>
+            인라인속성부여>아이디선택자>클래스선택자>태그선택자</p>
+        
+        <ol>
+            <li>item1</li>
+            <li id="id01">item2</li>
+            <li class="cl01">item3</li>
+            <li id="id02" class="cl01">item4</li>
+<!--        아이디는 한 번만 지정해야 함.
+            li 이하에 p 오면 안됨. 문법 오류.
+            ul. ol 이하에는 li만 와야 함
+-->
+            <li class="cl02">item5</li>
+            <li class="cl01 cl02">item6</li>
+<!--
+            속성 내용이 다르면 두 개다 적용됨<br>
+            같은 속성이 중복되면 스타일시트에서 나중에 쓰인 것이 적용됨
+-->
+            <li>item7</li>
+            <li class="cl01">item8</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex05.html</title>
+<style rel="stylesheet" type="text/css">
+	table{
+		border-collapse: collapse;
+	}
+	table,th,td{
+		border: 1px solid gray;
+	}
+	th{
+		width: 100px;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.get('deptlist.bit',function(data){
+ 		for(var i=0; i<data.depts.length; i++){
+			var obj=data.depts[i];
+			$('table').append('<tr><td>'+obj.deptno+'</td><td>'+obj.dname+'</td><td>'+obj.loc+'</td></tr>');
+		}
+/* 		data.depts.forEach(function(ele,idx){
+			$('table').append('<tr><td>'+ele.deptno+'</td><td>'+ele.dname+'</td><td>'+ele.loc+'</td></tr>');
+		}); */
+	});
+});
+</script>
+</head>
+<body>
+	<h1>DEPT List</h1>
+	<table>
+		<tr>
+			<th>deptno</th>
+			<th>dname</th>
+			<th>loc</th>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+drop view v_std;
+
+create view v_std as
+select std.cno,std.sno,ctitle,name,gr1,gr2,gr3,t_count.cnt,t_good.good,t_late.late,t_leftearly.leftearly,t_absent.absent 
+from std
+left join mbr on std.id=mbr.id
+left join crs on std.cno=crs.cno
+left join (select max(sno) as sno, count(sno) as cnt from att group by sno) t_count on std.sno=t_count.sno
+left join (select max(sno) as sno, count(sno) as good from att where ckin=1 and ckout=1 group by sno) t_good on std.sno=t_good.sno
+left join (select max(sno) as sno, count(sno) as late from att where ckin=2 and ckout!=0 group by sno) t_late on std.sno=t_late.sno
+left join (select max(sno) as sno, count(sno) as leftearly from att where ckin!=0 and ckout=3 group by sno) t_leftearly on std.sno=t_leftearly.sno
+left join (select max(sno) as sno, count(sno) as absent from att where ckin=0 or ckout=0 group by sno) t_absent on std.sno=t_absent.sno
+where mbr.lvl='L03'
+order by std.sno;
+
+select * from v_std;

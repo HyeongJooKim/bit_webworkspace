@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 이부분이 있어야 어시스트 동작함 -->
+<!-- https://struts.apache.org/getting-started/how-to-create-a-struts2-web-application.html -->
+
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="index">
+			<result>/ex01.jsp</result>
+		</action>
+		<action name="list" class="com.bit.dept.action.DeptListAction">
+			<interceptor-ref name="params"></interceptor-ref>
+			<result name="success">/list.jsp</result>
+		</action>
+		<action name="add" class="com.bit.dept.action.DeptAddAction">
+			<result name="success">/add.jsp</result>
+		</action>
+		<action name="insert" class="com.bit.dept.action.DeptInsertAction">
+			<interceptor-ref name="params"></interceptor-ref>
+			<result name="input">/add.jsp</result>
+			<result name="success">/addresult.jsp</result>
+		</action>
+		<action name="detail" class="com.bit.dept.action.DeptOneAction">
+			<interceptor-ref name="params"></interceptor-ref>
+			<result name="success">/detail.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<style rel="stylesheet" type="text/css">
+</style>
+<title>ex14</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+   
+$(document).ready(function(){
+    $('h1').click(function(){
+        $('h1').after('<p>내용</p>');
+    });
+    $('p').click(function(){
+        alert('p 클릭됨');
+    });
+    //이렇게 병렬로 두 개 이벤트를 달면 동시 실행되므로 나중것이 실헹 안됨.
+});
+</script>
+</head>
+<body>
+    <h1>현재 이벤트의 문제점</h1>
+</body>
+</html>

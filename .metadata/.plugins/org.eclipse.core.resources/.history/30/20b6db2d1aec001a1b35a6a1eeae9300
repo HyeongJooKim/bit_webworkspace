@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>editresult.jsp</title>
+</head>
+<body>
+	<h2>Edit : Successfully done</h2>
+	<script type="text/javascript">
+		function callback(){
+			location.href='detail.action?deptno=${bean.deptno}';
+		}
+	setTimeout(callback,1000);
+	</script>
+</body>
+</html>

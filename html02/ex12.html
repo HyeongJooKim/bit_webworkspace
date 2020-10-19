@@ -1,0 +1,80 @@
+<!--ex12-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            h1{
+                background-color: darkgray;
+                color: white;
+            }
+            h1~p{
+                margin-bottom: 1px;
+/*                p 바깥 여유 주기. 디폴트로 좀 설정되어 있음. 4방향 다 따로 할 수 있음*/
+                width: 200px;
+                height: 50px;
+                background-color: lightgray;
+            }
+            div{
+                width: 200px;
+                height: 100px;
+                background-color: lightcyan;
+            }
+            body{margin:20px;}
+            h1+p{
+                padding: 10px;
+/*                안쪽 여백주기*/
+                background-color: aliceblue;
+                border-width:20px;                
+                border-color: pink;
+                border-style: ridge;
+            }
+            table,th,td{
+/*                border-spacing: :0px;*/
+                border-collapse: collapse;
+                border-color: blueviolet;
+                border-style: dotted;
+                border-width: thin;
+            }
+            th{
+                background-color: aqua;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>속성 - Element 특성 제어</h1>
+        <p>내용1 그렇다면 내용 길면 넘어간단 말인가? 그렇군</p>
+        <p>content2</p>
+        <div>
+            <h2>제목</h2>
+            <p>내용</p>
+        </div>
+        <table>
+            <tr>
+                <th>col1</th>
+                <th>col2</th>
+                <th>col3</th>
+                <th>col4</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </body>
+</html>

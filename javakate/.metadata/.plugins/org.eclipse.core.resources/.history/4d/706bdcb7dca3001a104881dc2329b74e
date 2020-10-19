@@ -1,0 +1,108 @@
+package com.bit.day19;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Grade032T {
+//선생님코딩 방법 2. ArrayList에 한 학생씩 자료 입력
+
+	public static void main(String[] args) {
+
+		ArrayList data=new ArrayList();
+		Scanner sc=new Scanner(System.in);
+		String title="학생성적관리프로그램(Ver 0.3.0)";
+		String menu="1.보기 2.입력 3.수정 4.삭제 0.종료>>";
+		String input=null;
+		
+		System.out.println(title);
+		for(int i=0; i<title.length()*2; i++){
+			System.out.print("-");
+		}
+		System.out.println();
+		
+		while(true){
+			System.out.print(menu);
+			input=sc.nextLine();
+			if(input.equals("0")){
+				break;
+			}else if(input.equals("1")){
+				System.out.println("-----------------------------------------------------");
+				System.out.println("학번\t|이름\t|국어\t|영어\t|수학\t|합계\t|평균");
+				System.out.println("-----------------------------------------------------");
+				for(int i=0; i<data.size();i++){
+					Object[] stu=(Object[])data.get(i);
+					for(int j=0; i<5; j++){
+						System.out.print(stu[j]);
+						System.out.print("\t|");
+					}
+					int sum=(int)stu[2]+(int)stu[3]+(int)stu[4];
+					double avg=sum*100/3/100.0;
+					System.out.print(sum);
+					System.out.print("\t|");
+					System.out.print(avg);
+					System.out.println();
+				}
+			}else if(input.equals("2")){
+				Object[] stu=new Object[5];
+				System.out.print("학번>>");
+				stu[0]=sc.nextInt();
+				sc.nextLine();
+				System.out.print("이름>>");
+				stu[1]=sc.nextLine();
+				System.out.print("국어>>");
+				stu[2]=sc.nextInt();
+				System.out.print("영어>>");
+				stu[3]=sc.nextInt();
+				System.out.print("수학>>");
+				stu[4]=sc.nextInt();
+				data.add(stu);
+			}else if(input.equals("3")){
+				System.out.print("학번>>");
+				input=sc.nextLine();
+				int num=Integer.parseInt(input);
+				//학번에서만 찾아야 함. 0,5,10,,,5마다의 자리에서만 검색
+				int idx=-1;
+				for(int i=0; i<data.size();i+=5){
+					if(num==(int)data.get(i)){
+						idx=i;
+						break;}
+				}
+				if(idx>-1){
+					idx++;
+					System.out.print("이름>>");
+					input=sc.nextLine();
+					data.set(idx++,input);
+					System.out.print("국어>>");
+					input=sc.nextLine();
+					data.set(idx++, Integer.parseInt(input));
+					System.out.print("영어>>");
+					input=sc.nextLine();
+					data.set(idx++, Integer.parseInt(input));
+					System.out.print("수학>>");
+					input=sc.nextLine();
+					data.set(idx, Integer.parseInt(input));
+				}	
+			}else if(input.equals("4")){
+				System.out.print("학번>>");
+				input=sc.nextLine();
+				int num=Integer.parseInt(input);
+				//학번에서만 찾아야 함. 0,5,10,,,5마다의 자리에서만 검색
+				int idx=-1;
+				for(int i=0; i<data.size();i+=5){
+					if(num==(int)data.get(i)){
+						idx=i;
+						break;}
+				}
+				if(idx>-1){
+					for(int i=0; i<5; i++){
+						data.remove(idx);//삭제하면 다음 번호 당겨지므로 같은 자리만 계속 지우면 됨
+					}				
+				}
+			}
+		}//while end
+		
+		
+		
+	}
+
+}

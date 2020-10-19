@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex04: web 제공 메소드 </title>
+<script type="text/javascript">
+//  window.console.log('출력');
+    
+//  window.alert('알림');//알림창 뜸
+    
+//  var result1=window.confirm('확인');//확인, 취소할 수 있는 창 뜨고 return 값 있음
+//  console.log(result1);//confirm에서 확인 누르면 true, 취소면 false 결과
+//  Bootsrap 배우고 나면 이거 쓰지 마라. 촌스럽다
+    
+//  var msg=window.prompt('메시지를 입력하세요','여기에');//입력창 
+//  console.log(msg);//사용자가 입력한 값 
+    var cnt=0;
+    var callback=function(){
+        console.log('callback...'+(++cnt));
+    };
+    window.setTimeout(callback,3000);//3초 뒤 callback 함수 수행
+    
+    //interval: 자원소모 심함. 쓰지 말라는 추세
+    var interval=window.setInterval(callback,1000);//1초마다 계속 callback 함수 수행
+    
+    var timeout=window.setTimeout(function(){
+       window.clearInterval(interval);
+    },3000);//5초 후 interval 멈춤 (시간은 그리 정확하지 않음) 단일 thread라 인터벌 시작 후 시작하므로 한번 쯤 더 나오는 듯...
+    
+//    window.clearTimeout(timeout);//timeout 무효화 명령
+    
+</script>
+</head>
+<body>
+</body>
+</html>

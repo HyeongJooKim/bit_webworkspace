@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>web06</display-name>
+  <welcome-file-list>
+    <welcome-file>ex01.jsp</welcome-file>
+    <!--여기에 넣어주면 주소 없어도 이 파일들을 찾아서 디폴트로 띄움-->
+    <!-- 이런 기본적인 환경설정을 하는 것이 Metadata 폴더 -->
+    <!-- 서버 실행시 실행되고, 그 이후 수정해도 수정사항 반영 안됨. -->
+    <!-- 수정하면 다시 서버를 내렸다가 올려야 함 -->
+  </welcome-file-list>
+  <!-- 서블렛도 만들어도 구동 안됨. 아래처럼 경로를 지정해줘야 함-->
+  <servlet>
+  	<servlet-name>ex02</servlet-name>
+  	<servlet-class>com.bit.web07.Ex02</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ex02</servlet-name>
+  	<url-pattern>/ex02.html</url-pattern>
+  </servlet-mapping>
+</web-app>

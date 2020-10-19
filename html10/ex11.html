@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <style rel="stylesheet" type="text/css">
+        #target{
+            width: 500px;
+            height: 400px;
+            background-color: antiquewhite;
+        }
+    </style>
+    <title>ex11</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('div').click(function(e){
+                console.log('clientXY',e.clientX,e.clientY);//사용자가 보는 화면 기준 좌표
+                console.log('pageXY',e.pageX,e.pageY);//페이지 중 좌표
+                console.log('screenXY',e.screenX,e.screenY);//화면전체 중 좌표
+            });
+            $('div').mousedown(function(){
+                console.log('mouse down');
+            });//클릭하려고 마우스 왼쪽 키 누른 것
+            $('div').mouseup(function(){
+                console.log('mouse up');
+            });//마우스 눌렀다 떼는 것
+            $('div').dblclick(function(){
+                console.log('mouse double click');
+            });//마우스 눌렀다 떼는 것
+            $('div').mouseover(function(e){
+                e.stopPropagation();//버블링 중지. 이게 싫으면 enter, leave 쓰면 됨
+                console.log('div over');
+            }).mouseout(function(e){
+                e.stopPropagation();//버블링 중지
+                console.log('div out');
+            });
+            
+            $('body').mouseover(function(){
+                console.log('body over');
+            });
+            $('body').mouseout(function(){
+                console.log('body out');
+            });
+            //bubbling 발생 중 div에만 들어가도 body에도 따라 들어감
+            
+            $('div').mousemove(function(e){
+                console.log(e.clientX,e.clientY);
+            });
+        });
+    </script>
+</head>
+<body>
+<h1> Mouse Event </h1>
+<div id="target"></div>
+</body>
+</html>

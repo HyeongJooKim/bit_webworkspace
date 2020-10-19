@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex11 </title>
+<style rel="stylesheet" type="text/css">
+    h1+div{
+        width: 100px;
+        overflow: hidden;
+    }
+    ul{
+        list-style: none;
+        width: 600px;
+        padding: 0px;
+    }
+    ul>li{
+        width: 100px;
+        float: left;
+    }
+    ul>li>img{
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+function loop(){
+    $('ul')
+        .animate({'margin-left':'-100px'},1000)
+        .delay()
+        .animate({'margin-left':'-200px'},1000)
+        .delay()
+        .animate({'margin-left':'-300px'},1000)
+        .delay()
+        .animate({'margin-left':'-400px'},1000)
+        .delay()
+        .animate({'margin-left':'-500px'},1000)
+        .delay()
+        .animate({'margin-left':'0px'})
+    setTimeout(loop,8000);
+};
+$(document).ready(function(){
+    loop();
+});
+</script>
+</head>
+<body>
+    <h1>케러셀 - animation</h1>
+    <div>
+        <ul>
+            <li><img src="img/lego1.jpg" alt=""/></li>
+            <li><img src="img/lego2.jpg" alt=""/></li>
+            <li><img src="img/lego3.jpg" alt=""/></li>
+            <li><img src="img/lego4.jpg" alt=""/></li>
+            <li><img src="img/lego5.jpg" alt=""/></li>
+            <li><img src="img/lego6.jpg" alt=""/></li>
+        </ul>
+    </div>
+</body>
+</html>

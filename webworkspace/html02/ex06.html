@@ -1,0 +1,71 @@
+<!--ex06. css 선택자-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            h1,p{color: red;}
+/*          2개 이상 나열은 ,로 연결. 가능하면 띄어쓰기도 하지 말고*/
+            div{background-color: lightcyan;}
+            div>h2{color:pink;}
+/*            >는 아래 레벨*/
+            div+p{background-color: aqua}
+/*            div 다음의 첫번째 p에 적용 p가 없으면 적용 안됨*/
+            div+P+P+ul+ol{background-color: beige}
+            div~p{color: yellow}
+/*            div 다음에 오는 p 모두에 적용*/
+            ol{color: mediumaquamarine}
+/*            레벨 무관 모든 ol에 적용*/
+/*            ul>li>ol{color:orange;}*/
+            ul ol{color:olive;}
+/*            ul의 자신인 ol에 적용*/
+            li:first-child{color:coral}
+/*            li 중 첫번째 값만. ol, ul 모두에 적용됨 */
+            li:last-child{color:chocolate;}
+/*            li 중 마지막 값*/
+            ul>li>ol>li:first-child+li+li{background-color: blueviolet}
+            li:nth-child(2){background-color: chartreuse;}
+/*            n번째 값*/
+            li:nth-child(even){background-color: yellowgreen}
+/*            odd 면 홀수*/
+            li:nth-child(4n-1){background-color: grey;}
+/*            css에서 연산이 적용되는 것처럼 보이는 유일한 것*/
+            
+        
+        </style>
+    </head>
+    <body>
+        <h1>css선택자</h1>
+        <h2>css선택자1</h2>
+        <div>
+            <h2>css선택자2</h2>
+            <p>선택자1</p>
+        </div>
+        <p>선택자2</p>
+        <p>선택자3</p>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3
+                <ol>
+                    <li>item4</li>
+                    <li>item5</li>
+                    <li>item6</li>
+                    <li>item7</li>
+                </ol>
+            </li>
+            <li>item4</li>
+        </ul>
+        <ol>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+            <li>item6</li>
+            <li>item7</li>
+            <li>item8</li>
+        </ol>
+        <h2></h2>
+    </body>
+</html>

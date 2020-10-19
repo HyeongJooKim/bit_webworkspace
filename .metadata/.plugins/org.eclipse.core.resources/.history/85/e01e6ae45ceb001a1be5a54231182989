@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- https://struts.apache.org/getting-started/how-to-create-a-struts2-web-application.html -->
+
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="hello" class="com.bit.action.Ex01Action">
+			<result>/hello.jsp</result>
+		</action>
+		<action name="ex02" class="com.bit.action.Ex02Action">
+			<result name="error">/ex03.jsp</result>
+			<result name="success">/ex02.jsp</result>
+		</action>
+	
+	
+	</package>
+
+
+
+</struts>

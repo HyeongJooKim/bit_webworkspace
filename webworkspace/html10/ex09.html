@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta>
+    <style rel="stylesheet" type="text/css">
+        #target{
+            width: 250px;
+            overflow-x: hidden;
+        }
+        #target>a{
+            color: white;
+            background-color: gray;
+            opacity: 0.5;
+            text-align: center;
+            font-size: 2em;
+            display: inline-block;
+            position: absolute;
+            left: 0px;
+            top: 95px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 40px;
+        }
+        #target>a:last-child{
+            left: 265px;
+        }
+        #target>ul{
+            margin-left: 50px;
+            list-style: none;
+            padding: 0px;
+            width: 1200px;
+        }
+        #target>ul>li{
+            float: left;
+        }
+        #target>ul>li>img{
+            height: 200px;
+            width: 200px;
+        }
+    
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        function nextImg(){
+            $('ul>li').first().appendTo('ul');
+        }
+        function prevImg(){
+            $('ul>li').last().prependTo('ul');
+        }
+        var next;
+        window.onload = function() {
+            var prev = $('<a/>').text('<');
+            next = $('<a/>').text('>');
+            $('#target').prepend(prev).append(next);
+            prev.click(prevImg);
+            next.click(nextImg);
+            setInterval(loop,1000);
+        };
+        function loop(){
+            next.click();
+        }
+    </script>
+    <title> ex09 </title>
+</head>
+
+<body>
+    <h1></h1>
+    <div id="target">
+        <!--젠코딩에서는 div#target으로 만들면 이름 생성
+        .className 으로 클래스도 생성됨-->
+        <ul>
+            <li><img src="img/lego1.jpg" alt=""></li>
+            <li><img src="img/lego2.jpg" alt=""></li>
+            <li><img src="img/lego3.jpg" alt=""></li>
+            <li><img src="img/lego4.jpg" alt=""></li>
+            <li><img src="img/lego5.jpg" alt=""></li>
+            <li><img src="img/lego6.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

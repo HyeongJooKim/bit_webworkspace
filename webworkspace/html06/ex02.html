@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex02: Date </title>
+<script type="text/javascript">
+    var a = new Date(); //지금 날짜 객체 생성
+    console.log(a); //Wed Jul 15 2020 09:50:15 GMT+0900 (대한민국 표준시)
+    console.log(a.getFullYear() + '년'); //현재연도 그냥 나옴. 이걸 쓰면 될 듯
+//  console.log((a.getYear()+1900)+'년');//1900년 기준. 이거 쓰지 말라 함.
+    console.log((a.getMonth() + 1) + '월'); //0(1월)~11(12월)
+    console.log(a.getDate() + '일'); //
+    console.log(a.getDay() + '요일'); //0(일)~6(토)
+    console.log(a.getHours() + '시'); //
+    console.log(a.getMinutes() + '분'); //
+    console.log(a.getSeconds() + '초'); //
+    console.log(a.getTime() + '초'); //1594774769902초 : milliseconds since 1970/01/01
+
+    a.setTime(1332403882588); //java에서 계산한 날짜 값 넣어주면 됨. 나중에 해보기로 함
+    console.log(a); //Thu Mar 22 2012 17:11:22 GMT+0900 (대한민국 표준시)
+
+    var b = new Date(2002, 1, 1, 15, 10, 0, 0);
+    console.log(b); //Fri Feb 01 2002 15:10:00 GMT+0900 (대한민국 표준시)
+</script>
+</head>
+<body>
+</body>
+</html>

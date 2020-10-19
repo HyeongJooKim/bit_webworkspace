@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;notepad.Ex17M&apos; to &apos;Notepad010M&apos;&#x0D;&#x0A;- Original project: &apos;smallProjects&apos;&#x0D;&#x0A;- Original element: &apos;notepad.Ex17M&apos;&#x0D;&#x0A;- Renamed element: &apos;notepad.Notepad010M&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Ex17M&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;notepad{Ex17M.java[Ex17M" matchStrategy="1" name="Notepad010M" qualified="false" references="true" similarDeclarations="false" stamp="1591578199807" textual="false" version="1.0"/>
+</session>

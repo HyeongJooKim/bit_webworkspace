@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Ant01. Ant02 두 파일을 이동해서 컴파일하고 압축하고 이동한 파일들 삭제하기-->
+<project name="build02" default="DeleteTempFiles" basedir=".">
+<description>build02-jarTest</description>
+	<property name="targetDir" value="C:\webworkspace\ant\my_ant_temp"/>
+	<property name="targetJarDir" value="C:\webworkspace\ant\my_jar"/>
+	<property name="sourceDir" value="${basedir}\src"/>
+	<target name="MakeDir">
+		<!--1.target directory 생성-->
+		<mkdir dir="${targetDir}"/>
+		<echo message="1.make directory: success 1"/>
+        <mkdir dir="${targetJarDir}"/>
+		<echo message="1.make directory: success 2"/>
+	</target>
+    
+    <target name="CopySrc" depends="MakeDir">
+		<!--2.소스 폴더안에 있는 파일들 target directory로 복사-->
+		<copy todir="${targetDir}">
+			<fileset dir="${sourceDir}"/>
+		</copy>
+		<echo message="2.copy filset from source to target: success"/>
+	</target>
+    
+    <target name="Compile" depends="CopySrc">
+		<!--3.compile하기-->
+		<javac srcdir="${targetDir}" destdir="${targetDir}"/>
+		<echo message="3.compile: success"/>
+	</target>
+
+    <target name="DeleteJava" depends="Compile">
+		<!--4..java파일들 삭제하기-->
+		<delete>
+			<fileset dir="${targetDir}" includes="**/*.java"/>
+		</delete>
+		<echo message="4.delete .java files: success"/>
+	</target>
+
+    <target name="CompressToJar" depends="DeleteJava">
+		<!--5..class 파일들을 .jar 파일로 압축-->
+		<jar destfile="${targetJarDir}/Build02.jar" basedir="${targetDir}"/>
+		<echo message="5.compress to .jar: success"/>
+	</target>
+
+    <target name="DeleteTempFiles" depends="CompressToJar">
+		<!--6..class 파일들과 임시폴더 모두 삭제하기-->
+		<delete includeEmptyDirs="true">
+			<fileset dir="${targetDir}"/>
+		</delete> 
+		<echo message="6.delete .class files: success"/>
+	</target>
+</project>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex06: BOM-window, Location </title>
+<script type="text/javascript">
+
+//    var frame=window.open("http://naver.com");//브라우저 빈창 뜸 ("url")하면 그 창 뜸
+//    frame.close();//여기서는 지금 안됨. 콘솔에서는 됨
+
+    var frame;
+    function func01(){
+//      구조: window.open(url,name,specs,replace)
+//        frame=window.open("http://naver.com");//새창 뜸
+//      frame=window.open("http://naver.com","_self");//현재 창에서 뜸 
+      frame=window.open("http://naver.com","_blank","width=400, height=400");//IE 용. 새 창. 크기 기정.
+//        frame=window.open("http://naver.com",
+    }
+    
+    function func02(){
+        frame.close();
+    }
+
+//    콘솔에서 수행
+//    frame.resizeBy(200,200);//현재보다 커짐
+//    frame.resizeTo(200,200);//무조건 이 크기로 바꿈
+//    frame.scrollBy(100,0);//x,y 위치만큼씩 이동
+//    
+//    window.location.reload();//새로 고침 버튼 눌러짐
+//    window.location.replace('http://naver.com');//이동. history에 안남음. 뒤로 못감
+//    
+//    window.location.href//치면
+//    "https://www.naver.com/"//결과 나옴
+    
+//    window.location.href='http://naver.com';//이것도 이동 명령. 뒤로가기 가능
+    
+</script>
+</head>
+<body>
+    <button onclick="func01();">open</button>
+    <button onclick="func02();">close</button>
+</body>
+</html>

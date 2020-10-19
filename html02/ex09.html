@@ -1,0 +1,103 @@
+<!--ex09-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            input{
+                color: darkgray;
+            } 
+            input[type=text]{
+                color: red;
+            }  
+            input[type=submit]{
+                background-color: aqua;
+            }  
+            input[type^=t]{
+/*          t로 시작하는 모든 타입에 적용*/
+                background-color: aqua;
+            }   
+        </style>
+    </head>
+    <body>
+        <h1>속성선택자</h1>
+        <form>
+            <div>
+                <label for="id">id</label>
+                <input type="text" id="id"/>
+<!--                input 은 바로 닫을 것-->
+<!--                label의 for와 input의 id를 같은 이름으로 묶어줘서 누구의 라벨인지 알 수 있게 함-->
+            </div>
+            <div>
+                <label for="pw">pw</label>
+                <input type="password" id="pw"/>
+            </div>
+            <div>
+                <label for="name">name</label>
+                <input type="text" id="name"/>
+            </div>
+            <div>
+                <label for="email">email</label>
+                <input type="email" id="email"/>
+<!--
+            email type : @의 유무를 검사해줌
+                모바일에서 입력하려 하면 @있는 자판으로 바뀜
+-->
+            </div>
+            <div>
+                <label for="color">color</label>
+                <input type="color" id="color"/>
+            </div> 
+<!--            지원은 브라우저에서 하는 것이라, 퍼포먼스는 브라우저마다 좀 다름-->
+            <div>
+                <label for="tel">tel</label>
+                <input type="tel" id="tel"/>
+            </div>
+<!--            모바일에서 입력하려 하면 전화번호 자판으로 바뀜-->
+            <div>
+                <label for="number">number</label>
+                <input type="number" id="number"/>
+            </div>
+<!--            모바일에서 입력하려 하면 숫자 자판으로 바뀜-->
+              <div>
+                <label for="url">url</label>
+                <input type="url" id="url"/>
+            </div>
+<!--            http가 있는지 검사해줌-->          
+            <div>
+                <label for="date">date</label>
+                <input type="date" id="date"/>
+            </div>
+            <div>
+                <label for="time">time</label>
+                <input type="time" id="time"/>
+            </div>
+            <div>
+                <label for="datetime-local">datetime-local</label>
+                <input type="datetime-local" id="datetime-local"/>
+            </div>
+            <div>
+                <label for="file">file</label>
+                <input type="file" id="file"/>
+            </div>
+            <div>
+                <label for="range">range</label>
+                <input type="range" id="range" min="1" max="100"/>
+            </div>
+            <div>
+                <label for="search">search</label>
+                <input type="search" id="search"/>
+            </div>
+            <div>
+                <label for="image">image</label>
+                <input type="image" id="image"/>
+            </div>
+            <div>
+                <button>버튼</button>
+<!--                form 안에 있는 버튼이 submit이 없다면 디폴트 속성으로 submit 기능함-->
+                <input type="submit" value="전송"/>
+                <input type="reset" value="취소"/>
+            </div>
+        </form>
+    </body>
+</html>

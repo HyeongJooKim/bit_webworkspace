@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex07 </title>
+<style rel="stylesheet" type="text/css">
+       
+</style>
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    window.onload=function() {
+        //자식 중 끝자리에 추가
+        var ele1=$('ul').append('<li>add01</li>');//문자열을 넣으면 추가가 됨.node를 잡아오는 것이 아니라 새로 썼으므로
+//      $('ul').append('<li>add02</li>');
+//      $('ul').append(document.querySelector('li'));
+        //이건 이동. 첫 값을 잡아 제일 뒤로 붙여주게 됨
+//      $('ul').append(document.querySelector('li'));
+        var ele2=$('<li>add02</li>').appendTo('ul');//쓰는 순서만 뒤집혔지, 뒤로 붙는 건 같음. 이게 더 사용성이 높음
+        console.log(ele1,ele2);//둘의 차이.ele1는 ul, ele2는 li를 반환
+        
+        //자식 중 첫 자리에 추가
+        $('ul').prepend('<li>pre01</li>');
+        $('<li>pre02</li>').prependTo('ul');
+        
+        //형제 자리에 추가. 나중에 붙이는 게 붙이는 대상 가까운 곳에 붙음.
+        $('<p>insertBefore</p>').insertBefore('ul');
+        $('<p>insertAfter</p>').insertAfter('ul');
+        $('ul').before('<p>before</p>');
+        $('ul').after('<p>after</p>');
+        
+        var rem=$('ul>li').eq(0).remove();//삭제
+        console.log(rem);
+        var det=$('ul>li').eq(0).detach();//잘라내기. remove와의 차이 모르겠음
+        console.log(det);
+    };
+</script>
+</head>
+
+<body>
+    <h1>.append() .appendTo() .prepend() .prependTo() .before() .after()</h1>
+    <div>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+    </div>
+</body>
+</html>

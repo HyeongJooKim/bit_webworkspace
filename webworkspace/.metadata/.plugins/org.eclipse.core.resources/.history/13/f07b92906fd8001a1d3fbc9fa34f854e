@@ -1,0 +1,21 @@
+drop table mbr;
+drop sequence mbr_seq;
+create table mbr(
+	mno number constraint mbr_mno_pk primary key,
+	id varchar2(20) constraint mbr_id_uk unique constraint mbr_id_nn not null,
+	pw varchar2(20) constraint mbr_pw_nn not null,
+	name varchar2(20) constraint mbr_name_nn not null,
+	tel number(11) constraint mbr_tel_uk unique,
+	email varchar2(30) constraint mbr_email_uk unique,
+	lvl char(3) default 'L01' constraint mbr_lvl_fk references lvl(lvl)
+);
+create sequence mbr_seq;
+--input data
+insert into dpt values (mbr_seq.nextval,'영업','c');
+insert into dpt values (dpt_seq.nextval,'행정','b');
+insert into dpt values (dpt_seq.nextval,'회계','c');
+insert into dpt values (dpt_seq.nextval,'취업','b');
+insert into dpt values (dpt_seq.nextval,'관리','a');
+commit;
+
+select * from dpt;

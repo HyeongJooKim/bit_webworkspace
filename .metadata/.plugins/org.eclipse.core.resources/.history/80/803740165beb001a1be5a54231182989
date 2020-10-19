@@ -1,0 +1,13 @@
+package com.bit.action;
+
+import com.opensymphony.xwork2.Action;
+
+public class Ex02Action implements Action {
+
+	@Override
+	public String execute() throws Exception {
+		System.out.println("ex02 Action run...");
+		return "success";
+	}
+	//http://localhost:8080/struts01/ex02.action
+}

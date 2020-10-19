@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex01 </title>
+</head>
+
+	<body>
+	<h1>노드생성</h1>
+	<p>내용</p>
+	<ul>
+	    <li>item1</li>
+	    <li>item2</li>
+	    <li>item3</li>
+	    <li>item4</li>
+	</ul>
+	<ol></ol>
+	<script type=text/javascript>
+//      방법1
+        var lis=document.getElementsByTagName('li');//html colletion 반환. 
+        //forEach (array용)은 작동 안함. 그냥 for로 해야 함.
+//      방법2
+//      var lis=document.querySelectorAll('li');//node list 반환
+        
+        var ul=document.getElementsByTagName('ul')[0];
+        var ol=document.getElementsByTagName('ol')[0];
+        
+//      방법1-1
+//      for(var i=0; i<lis.length; i++){
+//          ol.appendChild(lis[0]);            
+//      }
+//        
+//      방법1-2
+        while(ul.childElementCount){
+            ol.appendChild(lis[0]);
+        }
+//      방법2
+//      lis.forEach(function(ele){
+//          ol.appendChild(ele);
+//      });//ul에 있던 li들을 ol로 이동
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex03 </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+//  .add()
+//  $('p').add('h1').css('color','red');//잢아놓은 명령에 tag elememnt 추가
+//  var h1=document.getElementsByTagName('h1');
+//  $('p').add(h1).css('color','blue');//element를 추가
+//  $('p').add($('h1').css('color','blue');//$()를 추가
+//  var h1=$('h1');
+//  $('p').add(h1).css('color','blue');
+    
+//  .each() : for each와 유사
+//  $('p').each(function(idx,ele){//idx, ele 순서
+//  $('p').each(function(idx){
+//      ele.style.color='red';//js
+//      console.log(idx,ele,this,ele===this);//여기서 this는 ele와 같음. 
+//      ele를 지우고 쓰는 인자인 idx만 사용.
+//      var clr=['red','blue','green','gray','yellow'];
+//      $(this).css('color',clr[idx]);//$
+//  });
+    
+//  이것과는 다르다. 구분해야
+//  var test=['a','b','c','d','e'];
+//  test.forEach(function(ele,idx){//ele, idx 순서
+//      console.log(idx,ele,this);//여기선 this가 ele와 같지 않음
+//  });
+    
+//  .end() 마지막 필터링을 멈추고 마지막 필터링 이전 상태로 돌아감.
+//  $('div').children().children().css('background','beige')
+//  .end().css('background','aqua');
+    
+//  $('li').odd().css('color','brown');// 이거 난 안됨. 다시 봐야
+    
+//  .filter()
+//  $('li').filter(':nth-child(2)').css('color','red');
+    
+//  .find() : 자손 중에서 검색
+//  $('body').find('p').css('color','blue');//'p'를 찾아 'p'에 적용
+    
+//  .has() : 그런 자손을 가지고 있는 부모를 검색
+//  $('body').has('p').css('color','green');//'p'를 가지고 있는 주체인 body에 적용
+//  .is() : 하나라도 해당하는 게 있으면 true 반환. equals 과 유사
+//  $('h1,p').each(function(){
+//      console.log(this, $(this).is('h1'));
+//  });
+    
+//  .not() : 선택에서 제외
+//  $('h1,p').not('h1').css('color','red');
+    
+//  $('h1').nextAll().css('color','red');
+//  $('p').last().prevAll().css('color','red');
+//  $('ol>li>a').parents().css('color','red');//조상 전체
+//  $('ol>li>a').parent().css('color','red');//자기 부모만
+    $('ol>li>a').parent().siblings().css('color','red');
+};
+</script>
+</head>
+
+<body>
+    <h1>Traversing</h1>
+    <p><a href="https://api.jquery.com/category/traversing/">Traversing</a></p>
+    <p>내용2</p>
+    <p>내용3</p>
+    <p>내용4</p>
+    <p>내용5</p>
+    <div>
+        <ul>
+            <li>ul1</li>
+            <li>ul2</li>
+            <li>ul3</li>
+            <li>ul4</li>
+        </ul>
+        <ol>
+            <li>ol1</li>
+            <li><a href="#">ol2</a></li>
+            <li>ol3</li>
+            <li>ol4</li>
+        </ol>
+    </div>
+</body>
+</html>

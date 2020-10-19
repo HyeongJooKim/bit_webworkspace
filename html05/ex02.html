@@ -1,0 +1,128 @@
+<!--ex02-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex02-type </title>
+<script type="text/javascript">
+//type
+//a.Boolean (true==1, true!==1, false==0, false!==0)
+    var a1;
+    a1=new Boolean(true);//객체 생성은 boolean 으로 헀어도 내부에서는 object type임
+//b.Number (실수형)
+    console.log(a1==true, a1===true, typeof a1);//true false "object"
+    var b1;
+    b1=1,234;//1만 인식함. 빈칸 있어도 그 전까지만 인식함
+    b1=3.14;
+    b1=3.0;//3.0이어도 출력하면 3으로 나옴
+    b1=new Number(3.14);//Number {0} "object" //값 안 넣으면 0
+    console.log(b1+1, typeof b1);//+1을 하니 오차 발생. 오차 흔하게 나온다. float type 사용한다고 함
+    console.log(b1.toString(),typeof b1);
+    console.log(Number.isNaN(parseInt("$100")));//js는 대소문자 구분하네...
+    b1=1234;
+    console.log(b1.toString(), typeof b1);//1234 number
+//c.String
+    var c1;
+    c1='문자열';
+    console.log(c1, typeof c1);//문자열 string
+    c1=new String('0123456789');
+    console.log(c1, typeof c1);//String {"문자열"} "object"
+    console.log(c1.slice(-4,-1), typeof c1);//678 object - substring과 동일 (시작점, 끝 다음점) (-하면 뒤부터 시작할 수 있음)
+    console.log(c1.substring(1,4), typeof c1);//123 object - substring과 동일 (-는 안됨)
+    console.log(c1.substr(1,4), typeof c1);//1234 object - 시작점, 갯수
+    
+//d.Array : {} 대신 [2,4,6,8], new Int[] 대신 new Array[]{2,4,6,8}
+    var d1;
+    d1=new Array();//[] "object"
+    d1=[1,3,5,7,9];//(5) [1,3,5,7,9] "object"
+    d1=new Array(2,4,6,8,10);//(5) [2,4,6,8,10] "object"
+    d1=new Array(4);//(4) [empty x 4] 4 "object". 
+    //숫자 하나만 넣으면 길이로 인식함
+    d1[0]='a';
+    d1[1]='b';
+//  d1[2]='c'; //undefined인데도 갯수에는 잡힘
+    d1[3]='d';
+    d1[4]='e';//추가는 됨. 갯수는 그래도 5개로 늘어남. 왜? 4라는 index 번호가 있으니 4+1=5개
+    //크기는 처음에 줄 수는 있지만, 값을 더 넣으면 늘어남. 
+    //값 안 넣은 자리는 undefined로. java의 List처럼 동적할당됨
+//  console.log(d1, d1.length, typeof d1);//(5)[] "object"
+//  for(var i=0;i<d1.length; i++){
+//      console.log(d1[i]);
+//  }
+//  d1.forEach(func01);
+//  function func01(item,idx){
+//      console.log(idx, item);
+//  }
+    d1.forEach(function (item,idx){console.log(item,idx);});
+    //이렇게 써도 됨. java의 익명클래스 구조가 여기서 간 것임.
+    d1=[5,3,9,1];
+    d1.sort();//asc
+    d1.reverse();//직전 순서를 거꾸로. 역순 정렬은 아님.
+    d1.forEach(function (item,idx){console.log(item,idx);});
+    d1.push(11);//마지막 자리에 새 값 들어감
+    d1.unshift(0);//첫 자리에 새 값 들어감
+//  d1.pop();//가장 마지막 입력 값 빼서 버림. LIFO, stack 방식
+//  reverse 중간에 넣으면 que 방식으로 바꿀 수 있음
+//  d1.shift();//pop의 반대, que 방식으로 FIFO로 값 꺼내 버림.
+    
+//  while(true){
+//      if(d1.length==0)break;
+//      console.log(d1.pop());
+//  }
+//  아래처럼 줄임
+//  while(d1.length!=0){
+//      console.log(d1.pop());
+//  }
+//  더 줄임. 0이 되면 false니까
+//  while(d1.length){
+//      console.log(d1.pop());
+//  }
+
+//  이렇게도 가능. tmp는 undefined이므로 false값. 값이 있을 때는 하나씩 대입해서 출력하고, 값이 없어지면 false이므로 멈춤
+//  var tmp;
+//  while(tmp=d1.pop()){
+//      console.log(tmp);
+//  }
+//  d1.sort();
+//  for(var idx in d1){
+//      console.log(idx,d1[idx]);
+//  }
+    d1.push(function(){console.log('array func');});
+    d1[6]();
+//e.object : dictionary type
+    var e1;
+    e1=new Object();//{} object - java Map
+    e1={'key1':'val1','key2':'val2'};
+    console.log(e1, typeof e1);
+    e1['key3']='val3';//입력은 이렇게
+    e1['key4']=1234;//숫자도 입력 가능
+    e1['key5']=new Array(2,4,6);//object는 다 입력가능
+    e1[true]='val6';
+    e1[7]='val7';//숫자도 키로 들어갈 수는 있지만, 가능하면 안쓴다. 왜? 그럼 Array랑 헷갈리잖아!
+    e1[d1]='val8';//키값에 아무거나 다 들어가고, 동일 키를 재사용하면 덮어쓰고
+    e1[d1]='val9';//키값에 아무거나 다 들어가고, 동일 키를 재사용하면 덮어쓰고
+    e1['key8']=[1,3,5,7];
+    console.log(e1['key8'][2]);//5 나옴. 값이 array고 그 중 2번 인덱스값 나옴
+    console.log(e1.key8[2]);//5 나옴. 위와 동일 즉. e1['key1'] 과 e1.key1 은 같음
+    
+    for(var key in e1){
+        console.log(e1[key]);//val 나옴
+    }
+    
+    e1.key10=function(){console.log('key10');};
+    e1.key10();
+//  변수 설정 안해도 되는 것은 window라는 object가 있는 숨어 있기 때문에
+//  우리가 쓴 변수들도 window.e1 인 것이다
+//  우리가 변수를 선언하면 window라는 object에 그 변수명을 key값으로 선언하는 개념
+    
+//6. function
+
+//7. null
+//8. undefined
+</script>
+</head>
+<body>
+</body>
+</html>

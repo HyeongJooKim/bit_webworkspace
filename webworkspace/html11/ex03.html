@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>ex03</title>
+<style rel="stylesheet" type="text/css">
+    #target{
+        width: 200px;
+        height: 200px;
+        background-color: antiquewhite;
+    }
+    div+div{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+/*
+    $('div').click(function(){
+        $(this).after('<div/>');
+    });//원래 있던 div에만 붙고 새로 생긴 div에는 안 붙는다. 모두 붙게 해보자
+ 
+ //delegate $ 1.4.3~ 미래에 있을 대상에도 실행됨
+    $(document).delegate('div','click',function(){
+        $(this).after('<div/>').css('background-color','white');
+        //클릭 후 자신에 .css 실행되는 것이군
+    });
+*/  
+    //on $ 1.7~ delegate과 동일. 이벤트, 대상 순서만 바뀜. 지금은 주로 이걸 씀.
+    $(document).on('click','div',function(){
+    //대상은 상위인 document. body도 되네
+        $(this).after('<div/>').css('background-color','white');
+        //클릭 후 자신에 .css 실행되는 것이군
+    });
+});
+</script>
+</head>
+<body>
+    <h1>Event Binding - .on()</h1>
+    <div id="target"></div> 
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>ex08</title>
+<style rel="stylesheet" type="text/css">
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('button').click(function(){
+        $('div').stop();
+        //진행중인 animation을 멈추고 다음 animation을 수행시작함
+    });
+    $('div').animate({'margin-left':'300px'},{'duration':3000});
+    $('div').animate({'margin-top':'300px'},{'duration':3000});
+    $('div').animate({'margin-left':'0px'},{'duration':3000});
+    $('div').animate({'margin-top':'0px'},{'duration':3000});
+//  $('div').stop();//첫 animation만 멈추고 그 이후것부터 실행
+//  $('div').stop();//그 다음 animation도 멈추고 3번째것부터 실행됨
+});
+</script>
+</head>
+<body>
+<h1>.animate() .stop()</h1>
+<button>stop</button>
+<div>box</div>
+</body>
+</html>

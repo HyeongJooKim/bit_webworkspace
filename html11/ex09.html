@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>ex09</title>
+<style rel="stylesheet" type="text/css">
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        text-align: right;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+function callbak(){
+    alert('종료');
+};
+var lav=$('<span/>');
+$(document).ready(function(){
+//  방법1 - 규칙대로
+//  $('div').animate({'width':'500px'},3000,'swing',callbak);
+    
+//  방법2 - 마음대로 옵션을 얼마든지 더할 수 있음
+//  $('div').animate({'width':'500px'},{'duration':3000,'easing':'swing','done':callbak});
+    
+    $('div').animate({'width':'500px'},{
+        'duration':3000,'easing':'easeOutBounce','done':callbak
+//      ,'step':function(a,b){
+//          console.log('step',a,b);
+//      }//변하는 값인 width를 100~500까지 진행하네
+        ,'progress':function(a,b,c){
+            console.log('progress',a,b,c);
+            $(lav).text(parseInt(b*100)+'%');//진행률(%)
+//          $('div').text(parseInt(c/1000)+'초');//남은시간(초)
+        }//b: 0~1까지 진행하네 c:남은 시간
+        ,'start':function(){s
+            $('div').append(lav);
+        }
+    });
+});
+</script>
+</head>
+<body>
+<h1>.animate()</h1>
+<div>box</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex13 </title>
+<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.min.css"/>
+<style rel="stylesheet" type="text/css">
+    img{
+        height: 200px;
+        width: 200px;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.slider').bxSlider({
+            captions: true
+            ,slideWidth: 200
+            ,minSlides: 2
+            ,maxSlides: 3
+            ,moveSlides: 1
+            ,onSliderLoad: function(idx){
+              console.log('loaded'+idx);
+            }
+            ,onSliderResize: function(){
+              console.log('resized');
+            }
+            ,onSlideBefore: function(){
+              console.log('before');
+            }
+            ,onSlideAfter: function(){
+              console.log('after');
+            }
+            ,onSlideNext: function(ele,before,after){
+              console.log('next',ele,before,after);
+            }
+            ,onSlidePrev: function(){
+              console.log('prev');
+            }
+            
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>BX Slider</h1>
+    <div class="slider">
+        <div><img src="img/lego1.jpg" title="Millenuim Falcon"/></div>
+        <div><img src="img/lego2.jpg" title="Master Yoda"/></div>
+        <div><img src="img/lego3.jpg" title="Star Destroyer"/></div>
+        <div><img src="img/lego4.jpg" title="Death Star"/></div>
+        <div><img src="img/lego5.jpg" title="Star Wars"/></div>
+        <div><img src="img/lego6.jpg" title="R2D2"/></div>
+    </div>
+
+</body>
+</html>

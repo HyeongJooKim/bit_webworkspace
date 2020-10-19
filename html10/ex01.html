@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex01 </title>
+<style rel="stylesheet" type="text/css">
+</style>
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function() {
+//    모든 타입 다 들어갈 수 있다
+//    jQuery('h1').css('color','red');//문자열
+//    var ele=document.querySelector('h1');//element
+//    jQuery(ele).css('color','red');
+//    jQuery(['a','b','c','d']).each(function(idx,val){//array
+//       console.log(idx,val);
+//    });
+//    var obj={'key1':'val1','key2':'val2'};//object
+//    jQuery(obj).each(function(idx,val){
+//        console.log('key:'+idx,'value:'+val);
+//    });
+//    jQuery(function(){
+//        console.log('function run');
+//    });//function
+    var msg=jQuery('h2');
+    console.log(msg.text());
+    var ele2=jQuery('<h2>msg</h2>');
+    ele2.each(function(){
+        console.log($(this).text(),msg.text());
+    });//jQuery인 ele2는 js인 ele3와 같음
+    
+//    var ele3=document.createElement('h2');
+//    ele3.appendChild(document.createTextNode('msg'));
+    
+    ele2.text('수정');
+    ele2.each(function(){
+        console.log($(this).text(),msg.text());
+    });
+//    String으로 입력가능한 것: css 선택자, tag
+};
+
+</script>
+</head>
+
+<body>
+<h1>jQuery</h1>
+<h2>test</h2>
+</body>
+
+</html>

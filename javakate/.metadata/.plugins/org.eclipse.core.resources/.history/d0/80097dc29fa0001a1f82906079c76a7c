@@ -1,0 +1,48 @@
+package com.bit.day17;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class BookEx01 {
+
+	public static void main(String[] args) {
+		ArrayList<BookVO> list = new ArrayList<BookVO>();
+		BookViewer viewer=new BookViewer();
+		BookController controller=new BookController(list);
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("----------------------------------------");
+		System.out.println("도서관리프로그램");
+		System.out.println("----------------------------------------");
+		while(true){
+			System.out.print("1.대여 2.반납 3.출력 4.도서보입력 5.종료 >>");
+			int choice=scanner.nextInt();
+			if(choice==1){
+				//대여실행
+			}else if(choice==2){
+				//반납실행
+			}else if(choice==3){
+				//출력실행
+				System.out.print("1.대여중인 책 목록 2.대여가능한 책 목록 3.전체 책목록 4.돌아가기 >>");
+				int choice2=scanner.nextInt();
+				if(choice2==1){
+					//대여목록
+				}else if(choice2==2){
+					//대여가능목록
+				}else if(choice2==3){
+					//전체목록
+				}else if(choice2==4){
+					continue;		
+				}
+			}else if(choice==4){
+				//입력실행
+				BookVO b=viewer.setInfo(scanner);
+				controller.add(b);
+			}else if(choice==5){
+				//종료
+				System.out.println("이용해 주셔서 감사합니다.");
+				break;
+			}
+			System.out.print("1.대여중인 책 목록 2.대여가능한 책 목록 3.전체 책목록 4.돌아가기 >>");
+		}//while end
+	}//main end
+}//class end

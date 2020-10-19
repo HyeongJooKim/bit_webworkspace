@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex08 </title>
+<style rel="stylesheet" type="text/css">
+</style>
+<script type=text/javascript>
+//js의 위치에 따라 DOM 구조 이후로 넣어야 실행이 제대로 되어, 끝으로 넣어야 하는 문제
+//로딩이 된 후 스크립스 실행하도록 짜면 된다
+//대부분의 js는 이렇게 시작함
+//이렇게 익명함수로 만드니 다 지역변수. 전역으로 빼려면
+    window.onload=function(){
+        condole.log('로딩됨');
+        var h1=document.querySelector('h1');
+        //var를 안붙여 놓으면 밖으로 빼던지.
+        console.log(h1);    
+    };//윈도가 로딩되면 func를 실행하라.
+//    window.onbeforeunload=function(){//윈도가 언로드 전에?
+//        alert('unload...');  
+//    };
+//    window.onloadeddata=function(){
+//        console.log('onloadeddata');
+//    };
+</script>
+</head>
+
+<body>
+	<h1>event-DOM level 2</h1>
+
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex02 </title>
+<style rel="stylesheet" type="text/css">
+    #target>ul>li{
+        list-style: none;
+        float: left;
+    }
+    #source{
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+	<h1>케러셀</h1>
+    <div id="target">
+        <ul></ul>
+    </div>
+    <div id="source">
+        <ol>
+            <li><img src="img/1.png"/></li>
+            <li><img src="img/2.png"/></li>
+            <li><img src="img/3.png"/></li>
+            <li><img src="img/4.png"/></li>
+        </ol>
+    </div>
+<script type=text/javascript>
+
+    var ol=document.querySelector('ol');
+    var ul=document.querySelector('ul');
+    add();
+    add();
+    setInterval(loop,1000);
+    function loop(){
+        remove();
+        add();
+    }
+    function add(){
+        ul.appendChild(ol.firstElementChild);
+    }
+    function remove(){
+        ol.appendChild(ul.firstElementChild);
+    }
+</script>
+</body>
+</html>

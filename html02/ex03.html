@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+        <h1>ex03-미디어태그</h1>
+        <h2>비디오태크 - 아래 확장자가 기본확장자로 encoding무관하게 잘 됨</h2>
+        <ul>
+            <li>.mp4</li>
+            <li>.webm</li>
+            <li>.ogg - 사이즈 작은</li>
+        <video width=100% src="sample.mp4" controls autoplay></video><br>
+        서비스 되지 않습니다.<br>
+        <!-- controls : 작동할 수 있도록 controller 추가됨-->
+        <video controls autoplay loop>
+        <!-- 자동재생, 무한반복-->
+            <source src="sample.mp4"/>
+            
+            
+        </video><br>
+            비디오 태그 닫은 후 넣어야 하네 서비스 되지 않습니다.<br>
+        </ul>
+        <h2>오디오태크 - 아래 확장자가 기본확장자로 encoding무관하게 잘 됨</h2>
+        <ul>
+            <li>.mp3</li>
+            <li>.wav</li>
+            <li>.ogg </li>
+        </ul>
+        <audio src="sample2.mp3" controls></audio>
+    </body>
+</html>

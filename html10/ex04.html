@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex04 </title>
+<style rel="stylesheet" type="text/css">
+    h1+div{background-color: antiquewhite;}
+    
+</style>
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function() {
+    console.log($('ul').text());//화면에 표시되는 값만
+    console.log($('ul').html());//tag 포함
+//  $('ul').html('<li>add1</li>');//덮어씀
+//  $('ul').html('<li>add2</li>');//또 덮어씀. 누적이 안됨
+    var ul=document.querySelector('ul');
+    var lis=document.querySelectorAll('li');
+    
+//  $(ul).html('<li>edit1</li>');
+//  $('ol').html(lis);//문자열이 아니라 element 자체를 넣으니 ul의 값을 ol로 이동. 복사가 아니라, 이동이 됨. 문자열이었으면 복제되었을 것.
+    var q=$('li').filter(':even');//이것도 이동이 됨. 왜냐 querySelector와 같으니
+    $('ol').html(q);
+};
+</script>
+</head>
+
+<body>
+    <h1>.text() .html()</h1>
+<div>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+    </ul>
+</div>   
+<ol></ol> 
+</body>
+</html>

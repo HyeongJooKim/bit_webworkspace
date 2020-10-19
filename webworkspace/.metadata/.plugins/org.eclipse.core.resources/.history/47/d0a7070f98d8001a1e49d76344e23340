@@ -1,0 +1,17 @@
+drop table empl;
+create table empl(
+	eno number constraint empl_eno_pk primary key,
+	hdate date,
+	dno char(3) constraint empl_dno_fk references dpt(dno),
+	id varchar(20) constraint empl_id_fk references mbr(id)
+);
+--input data
+insert into dpt values ('D01','영업','L11');
+insert into dpt values ('D02','행정','L12');
+insert into dpt values ('D03','강사','L12');
+insert into dpt values ('D04','취업','L12');
+insert into dpt values ('D05','회계','L13');
+insert into dpt values ('D06','관리','L20');
+commit;
+
+select * from dpt;

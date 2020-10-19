@@ -1,0 +1,22 @@
+/*css01.css*/
+            h1{
+                color: white;
+                background-color: dimgrey
+            }
+            h2{
+                background-color: yellowgreen;
+            }
+            h3{
+                color: brown;
+                background-color: beige
+            }
+            p{
+                background-color: aqua;
+            }
+
+/*
+주석: 다중주석만 있음
+주석 너무 많이 안쓰는 게 좋다. 가끔 오류날 수 있다.
+위에서부터 순차적으로 되므로 맨 밑에 넣기도 함
+속성이 여러번 지정되면 계속 덮어씀. 마지막 속성이 적용됨
+*/

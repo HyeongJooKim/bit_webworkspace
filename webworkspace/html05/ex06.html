@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex06 </title>
+<script type="text/javascript">
+    function func01(){
+        console.log(this);//Window
+        console.log(this==window);//true
+    }
+    func01();
+    
+    var obj={};
+    obj.key='test';
+//    obj.key2=function(){
+//        console.log(this.key1);//여기서 this는 object
+//    };
+//    getter, setter 만들기
+    obj.getKey=function(){return this.key;};
+    obj.setKey=function(a){this.key=a;};
+
+    obj.setKey('abc');
+    console.log(obj.getKey());//abc 나옴
+    
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!--ex13-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            div{
+                width:50px;
+                height: 50px;
+                background-color: azure;
+/*                div끼리는 기본 margin 없음*/
+                border: 1px solid blue;
+/*                여러 속성 한번에 나열 가능. 빈칸으로 분리. , 안됨*/
+                padding: 10px;
+/*                원래 크기는 유지하면서 패딩만큼 크기를 키워서 안여백으로 만듬*/
+/*                display: inline;*/
+/*                옆으로 죽 붙일 수 있음. 단지 block이 기본 속성인 것*/
+                display: inline-block;
+/*                옆으로 붙으면서 크기조절도 됨*/
+            }
+            span{
+                margin: 0px;
+/*                마진도 좌우만 되네. 0으로 줘도 딱 붙지 않네 */
+                padding: 10px;
+/*
+                width:100px;
+                height: 1000px;
+                넓이, 높이 적용 안됨. 들어갈 크기에 따라 결정됨. div와 다르네
+*/
+                background-color: beige;
+/*                div끼리는 기본 margin 없음*/
+                border: 1px solid brown;
+/*                여러 속성 한번에 나열 가능. 빈칸으로 분리. , 안됨*/
+                display:block;
+/*                div 처럼 크기조정할 수 있음. 단지 inline이 기본 속성인 것 */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BOX LAYOUT</h1>
+        <div>1.div는 줄 전체 차지함</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <span>5.인라인 span</span><span>6</span>
+<!--        span 사이에 space 한칸 있는 셈. 이걸 다 붙이면 다 붙음 -->
+        <span>7</span>
+        <span>8</span>
+    </body>
+</html>

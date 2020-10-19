@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+     <sqlMap>
+       	<select id="selectAll" resultClass="com.bit.emp.model.entity.EmpVo">
+     		select * from emp
+     	</select>    	
+       	<insert id="insertOne" parameterClass="com.bit.emp.model.entity.EmpVo">
+     		insert into emp (name,sub,pay) values (#name#,#sub#,#pay#)
+     	</insert>    	
+       	<select id="selectOne" parameterClass="int" resultClass="com.bit.emp.model.entity.EmpVo">
+     		select * from emp where sabun=#value#
+     	</select>    	
+       	<update id="updateOne" parameterClass="com.bit.emp.model.entity.EmpVo">
+     		update emp set name=#name#, sub=#sub#, nalja=now(),pay=#pay# where sabun=#sabun#
+     	</update>    	
+       	<delete id="deleteOne" parameterClass="int">
+     		delete from emp where sabun=#value#
+     	</delete>    	
+     </sqlMap>

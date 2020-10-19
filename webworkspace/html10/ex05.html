@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> ex05 </title>
+<style rel="stylesheet" type="text/css">
+    #target1{background-color: antiquewhite; margin: 0px;}
+    #target2{background-color: yellow; height: 110px; padding: none; margin: 0px;}
+    #target1 img{height: 100px;}
+    #target2 ul{
+        list-style: none;
+        padding: none;
+    }
+    #target2 ul>li{
+        float: left;
+    }
+    #target2 img{
+        height: 100px;
+    }
+    
+</style>
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    var cnt=0;
+    function func01(){
+        cnt++;
+        if(cnt==7) cnt=1;
+//      방법1
+        $('#target1').html('<img src="img/lego'+cnt+'.jpg"/>');
+//      방법2
+//      var ele=$('<img/>');
+//      ele.attr('src','img/lego'+cnt+'.jpg');
+//      $('#target1').html(ele);
+        setTimeout(func01,1000);
+    }
+    function func02(){
+        var first=$('ul>li').eq(0);
+        var temp=$('<ol/>').html(first);
+        //'<ol/>'은 '<ol></ol>'과 같음. ol 하나 만들어 준 것. 그 후에 html 끼워 넣는 것. 꼭 ol 아니어도 되나 li를 붙일 수 있는 것이라면 아무거나.
+        $('ul').html($('ul').html()+temp.html());
+        setTimeout(func02,1000);
+    }
+    window.onload=function() {
+        func01();
+        setTimeout(func02,1000);
+    };
+</script>
+</head>
+
+<body>
+    <h1>캐러셀(Carousel)</h1>
+    <div id="target1"></div>
+    <div id="target2">
+        <ul>
+            <li><img src="img/lego1.jpg"/></li>
+            <li><img src="img/lego2.jpg"/></li>
+            <li><img src="img/lego3.jpg"/></li>
+            <li><img src="img/lego4.jpg"/></li>
+            <li><img src="img/lego5.jpg"/></li>
+            <li><img src="img/lego6.jpg"/></li>
+        </ul>
+    </div>
+</body>
+</html>

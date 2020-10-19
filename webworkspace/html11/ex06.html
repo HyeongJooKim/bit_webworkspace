@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>ex06</title>
+<style rel="stylesheet" type="text/css">
+    div{
+        width: 200px;
+        background-color: aqua;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('button').eq(0).click(function(){
+//      $('div').hide('fast');
+//      $('div').fadeOut('slow');
+        $('div').slideUp('slow');
+//      $('div').slideUp(3000);//시간 지정도 가능
+//      $('div').slideUp(1000,callback);//함수 수행도 가능
+    });
+    $('button').eq(1).click(function(){
+//      $('div').show('slow');
+//      $('div').fadeIn('slow');
+//      $('div').slideDown('slow');
+//      $('div').slideDown(3000,function(){
+//          $('button').eq(0).click();
+//      });
+        $('div').fadeTo(3000,0.7);
+    });
+        
+    $('button').eq(2).click(function(){
+//      $('div').toggle(3000,callback);
+//      $('div').slideToggle(1000);
+        $('div').fadeToggle(1000);
+    });
+});
+function callback(){
+    alert('끝');
+}
+</script>
+</head>
+<body>
+    <h1>Animation</h1>
+    <button>hide</button>
+    <button>show</button>
+    <button>toggle</button>
+    <div>
+운영체제의 특징<br> 
+운영체제는 사용자로 하여금 컴퓨터의 하드웨어를 보다 쉽게 사용할 수 있도록 인터페이 스스를 제공해 주는 소프트웨어이다. 하드웨어는 컴퓨터의 장치를 제어하고 데이터를 처리하는 중앙 처리 장치, 데이터를 저장하는 기억 장치, 외부와의 통신을 담당하는 통신 장치 그리고 데이터 입력과 출력을 담당하는 입출력 장치 등으로 구분될 수 있다. 즉, 운영체제는 사용자 편의성을 위한 인터페이스인 동시에 다양한 자원을 관리하는 자원 관리자이다.
+    </div>
+</body>
+</html>

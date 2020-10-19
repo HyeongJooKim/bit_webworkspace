@@ -1,0 +1,23 @@
+package com.bit.web01;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+//웹서버 만들어보기
+
+public class Server {
+
+	public static void main(String[] args) {
+		int port=8080;
+		ServerSocket serv=null;
+		
+		try {
+			serv=new ServerSocket(port);
+			serv.accept();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+	}
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<style rel="stylesheet" type="text/css">
+    #target{
+        width: 300px;
+        height: 300px;
+        background-color: antiquewhite;
+    }
+</style>
+<title>ex01</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    var a=document.querySelector('a');
+    
+    //DOM level2
+    a.onclick=function(){
+        return false;
+    };//클릭하면 실행하는 함수가 onclick에 이미 내장되어 있고 {}안에 내가 원하는 내용을 재정의하는 것. return true가 내장되어 있는 것. js는 return 받을게 없으면 undefined로 나오니 문법오류 아님. return false를 해주면 원래 내장된 기능을 안하게 됨. 두 개 쓰면 나중 것이 덮어씀
+    
+    //DOM level3
+    a.addEventListener('click',function(e){
+        e.preventDefault();//내장된 고유기능 멈춤. 반드시 첫줄에 와야 함.
+    });//반면에 이 경우는 event를 내가 붙이는 것이라서 return true에 약속된 것이 없다. 이게 DOM level 3. 이건 두 개를 쓰면 둘 다 작동함. 왜? 내가 붙인 거니까. return flase는 원래는 여기선 무효한데 사용자 편의를 위해 브라우저마다 실행되기도 함.
+    
+    $('#target').on('click',function(){
+        console.log('click!');
+        return false;
+    });
+    $('#target').click(function(){
+        console.log('method click!');
+    });
+    $('a').click(function(){
+        console.log('a click!');
+    });
+    $('#target').click(function(){
+        console.log('또다른 method click!');//DOM level 3.덮어쓰지 않고 다 나옴
+    });
+    
+});
+</script>
+</head>
+<body>
+    <h1>이벤트 바인딩</h1>
+    <a href="http://www.naver.com">link</a>
+    <div id="target"></div>
+     
+</body>
+</html>

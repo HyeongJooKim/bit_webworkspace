@@ -1,0 +1,38 @@
+package com.bit.crs.controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bit.crs.model.V_crsDao;
+import com.bit.crs.model.V_crsDto;
+import com.bit.std.model.V_stdDao;
+import com.bit.std.model.V_stdDto;
+
+@WebServlet("/lms/mytask/mycourses.bit")
+public class MycoursesController extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			V_crsDao dao = new V_crsDao();
+			ArrayList<V_crsDto> list=dao.selectMine(1008);
+//			나중에서 로그인 정보에서 eno 받아서 넣어야 함
+			request.setAttribute("list", list);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.getRequestDispatcher("/mycourses.jsp").forward(request, response);
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	}
+
+}

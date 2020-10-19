@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> ex01 </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+//$(document).ready(function(){
+//    $.get('http://localhost:8080/html12/emplist.bit',function(){});
+//});
+//이런 식으로는 접속이 안됨
+//Access to XMLHttpRequest at 'http://localhost:8080/html12/emplist.bit' from origin 'http://127.0.0.1:63278' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+//동일출처정책 Same-origin policy.
+//protocol, host, port가 동일한 서버로만 ajax요청을 주고받을 수 있도록 한 정책
+//해결방법 3가지
+//1. 브라우저가 이걸 막지 못하게 BE에서 고쳐서 보내기. proxy pattern을 이용
+//    BE에서 java.net.URI... 이용하면 브라우저가 모른다
+//    2.jsonp를 이용하는 방법
+$(document).ready(function(){
+    $.ajax({
+        'url':'http://localhost:8080/html12/ex07.jsp'
+        ,'type':'get'
+        ,'dataType':'jsonp'
+        ,'jsonCallback':'myCall'
+        ,'success':function(data){
+            console.log(data);
+        }
+    });
+});
+</script>
+</head>
+
+	<body>
+
+</body>
+</html>

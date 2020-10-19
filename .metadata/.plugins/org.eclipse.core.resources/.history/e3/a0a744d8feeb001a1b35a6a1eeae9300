@@ -1,0 +1,13 @@
+package com.bit.dept.model;
+
+import java.sql.Connection;
+
+public class DeptDao {
+
+	Connection conn;
+	
+	public DeptDao(){
+		
+	}
+	
+}
